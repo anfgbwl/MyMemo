@@ -13,7 +13,9 @@
 		3FBF01B32A78E7C400E3EB02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01B12A78E7C400E3EB02 /* Main.storyboard */; };
 		3FBF01B52A78E7C600E3EB02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01B42A78E7C600E3EB02 /* Assets.xcassets */; };
 		3FBF01B82A78E7C600E3EB02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01B62A78E7C600E3EB02 /* LaunchScreen.storyboard */; };
-		3FBF01C02A78EBC500E3EB02 /* team3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01BF2A78EBC500E3EB02 /* team3.png */; };
+		3FE583EB2A7A2B8200FEB453 /* team3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01BF2A78EBC500E3EB02 /* team3.png */; };
+		3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EC2A7A31D800FEB453 /* TableViewController.swift */; };
+		3FE583EF2A7A494100FEB453 /* MemoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EE2A7A494100FEB453 /* MemoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		3FBF01B72A78E7C600E3EB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FBF01B92A78E7C600E3EB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FBF01BF2A78EBC500E3EB02 /* team3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team3.png; sourceTree = "<group>"; };
+		3FE583EC2A7A31D800FEB453 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		3FE583EE2A7A494100FEB453 /* MemoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +66,12 @@
 				3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */,
 				3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */,
 				3FBF01AF2A78E7C400E3EB02 /* ViewController.swift */,
+				3FE583EC2A7A31D800FEB453 /* TableViewController.swift */,
 				3FBF01B12A78E7C400E3EB02 /* Main.storyboard */,
 				3FBF01B42A78E7C600E3EB02 /* Assets.xcassets */,
 				3FBF01B62A78E7C600E3EB02 /* LaunchScreen.storyboard */,
 				3FBF01B92A78E7C600E3EB02 /* Info.plist */,
+				3FE583EE2A7A494100FEB453 /* MemoList.swift */,
 			);
 			path = MyMemo;
 			sourceTree = "<group>";
@@ -130,7 +136,7 @@
 			files = (
 				3FBF01B82A78E7C600E3EB02 /* LaunchScreen.storyboard in Resources */,
 				3FBF01B52A78E7C600E3EB02 /* Assets.xcassets in Resources */,
-				3FBF01C02A78EBC500E3EB02 /* team3.png in Resources */,
+				3FE583EB2A7A2B8200FEB453 /* team3.png in Resources */,
 				3FBF01B32A78E7C400E3EB02 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +151,8 @@
 				3FBF01B02A78E7C400E3EB02 /* ViewController.swift in Sources */,
 				3FBF01AC2A78E7C400E3EB02 /* AppDelegate.swift in Sources */,
 				3FBF01AE2A78E7C400E3EB02 /* SceneDelegate.swift in Sources */,
+				3FE583EF2A7A494100FEB453 /* MemoList.swift in Sources */,
+				3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
