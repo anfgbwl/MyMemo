@@ -9,6 +9,9 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    // switch 상태 확인하는 변수
+    var switchStates = [Bool]()
+    
     // 나중에 시간 표시할 수도 있으니까 남겨두기
     let formatter: DateFormatter = {
         let f = DateFormatter()
@@ -52,8 +55,6 @@ class TableViewController: UITableViewController {
 
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -64,7 +65,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.reloadData()
+//        tableView.reloadData()
    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,15 +90,39 @@ class TableViewController: UITableViewController {
                 
         // 메모 작성날짜 삽입
 //        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
+        
         return cell
     }
 
 }
 
 class TableViewCell: UITableViewCell {
+    
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var memoSwitch: UISwitch!
+    
+    // 이전 텍스트를 저장할 변수 추가
+    private var previousText: String?
+    
+    // 스위치 상태를 저장하는 변수
+    var isSwitchOn = true
+    
     @IBAction func memoSwitch(_ sender: UISwitch) {
+        isSwitchOn = sender.isOn
+        updateLabelStrikeThrough()
+    }
+    
+    func updateLabelStrikeThrough() {
+        if isSwitchOn {
+            // 스위치가 on인 경우 취소선을 없애고 이전 텍스트 복원
+            // >> 위아래 순서 바꾸니까 해결...
+            memoLabel.attributedText = nil
+            memoLabel.text = previousText
+        } else {
+            // 스위치가 off인 경우 취소선을 추가하고 이전 텍스트 저장
+            previousText = memoLabel.text
+            memoLabel.attributedText = memoLabel.text?.strikeThrough()
+        }
     }
     
     override func awakeFromNib() {
@@ -112,7 +137,7 @@ class TableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        memoLabel.text = nil
+        memoLabel.attributedText = nil
     }
     
 //    // 라벨의 크기를 설정하는 메서드 (오버라이드)
@@ -125,3 +150,10 @@ class TableViewCell: UITableViewCell {
     
 }
 
+extension String {
+    func strikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+}

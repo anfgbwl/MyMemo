@@ -17,8 +17,8 @@ class Memo {
     }
     
     static var MemoList = [
-        Memo(content: ""),
-        Memo(content: "")
+        Memo(content: "Lv2 기능 구현하기"),
+        Memo(content: "TIL 작성하기")
         
     ]
 }
