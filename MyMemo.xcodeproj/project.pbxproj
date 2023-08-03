@@ -17,6 +17,7 @@
 		3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EC2A7A31D800FEB453 /* TableViewController.swift */; };
 		3FE583EF2A7A494100FEB453 /* MemoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EE2A7A494100FEB453 /* MemoList.swift */; };
 		3FE583F12A7A673200FEB453 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583F02A7A673200FEB453 /* ComposeViewController.swift */; };
+		3FE583F32A7A6A6200FEB453 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583F22A7A6A6200FEB453 /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3FE583EC2A7A31D800FEB453 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3FE583EE2A7A494100FEB453 /* MemoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoList.swift; sourceTree = "<group>"; };
 		3FE583F02A7A673200FEB453 /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		3FE583F22A7A6A6200FEB453 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				3FBF01B92A78E7C600E3EB02 /* Info.plist */,
 				3FE583EE2A7A494100FEB453 /* MemoList.swift */,
 				3FE583F02A7A673200FEB453 /* ComposeViewController.swift */,
+				3FE583F22A7A6A6200FEB453 /* UIViewController+Alert.swift */,
 			);
 			path = MyMemo;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				3FE583F12A7A673200FEB453 /* ComposeViewController.swift in Sources */,
 				3FE583EF2A7A494100FEB453 /* MemoList.swift in Sources */,
 				3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */,
+				3FE583F32A7A6A6200FEB453 /* UIViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
