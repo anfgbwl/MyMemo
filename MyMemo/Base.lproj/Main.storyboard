@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,7 +36,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="firstButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tBg-Ac-wt5"/>
-                                    <segue destination="cJX-6b-fja" kind="show" id="XGZ-27-OBL"/>
+                                    <segue destination="cJX-6b-fja" kind="show" id="KBV-n4-MeY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utf-fQ-6zj">
@@ -56,15 +57,6 @@
                                     <segue destination="cnT-y3-aQq" kind="show" id="7BT-5H-HRK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlf-yp-Jop">
-                                <rect key="frame" x="279" y="409" width="54" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="추가"/>
-                                <connections>
-                                    <action selector="add:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WTO-H4-gxQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028.2442748091603" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1007" y="4"/>
         </scene>
         <!--할 일 확인하기-->
         <scene sceneID="Fft-hc-lpA">
@@ -89,29 +81,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="TableViewCell" textLabel="KSI-Uc-r0Z" detailTextLabel="fzr-VN-WIs" rowHeight="71" style="IBUITableViewCellStyleSubtitle" id="McD-wK-MZt" customClass="TableViewCell" customModule="MyMemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="71"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="20" reuseIdentifier="TableViewCell" rowHeight="48" id="McD-wK-MZt" customClass="TableViewCell" customModule="MyMemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="McD-wK-MZt" id="FTL-NO-afm">
-                                    <rect key="frame" x="0.0" y="0.0" width="349" height="71"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="48"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KSI-Uc-r0Z">
-                                            <rect key="frame" x="19.999999999999996" y="14.666666666666666" width="34.666666666666664" height="21.666666666666668"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCP-Xr-fSY">
+                                            <rect key="frame" x="20" y="11" width="298" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fzr-VN-WIs">
-                                            <rect key="frame" x="19.999999999999996" y="39.666666666666671" width="43.666666666666664" height="14.333333333333334"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <color key="textColor" systemColor="systemGray2Color"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SO6-eD-Wic">
+                                            <rect key="frame" x="326" y="8" width="49" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="onTintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="memoSwitch:" destination="McD-wK-MZt" eventType="valueChanged" id="rGb-wT-NcW"/>
+                                            </connections>
+                                        </switch>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="memoLabel" destination="uCP-Xr-fSY" id="Ffn-8R-RoN"/>
+                                    <outlet property="memoSwitch" destination="SO6-eD-Wic" id="FTd-J0-lRq"/>
+                                    <segue destination="L2W-4Y-msf" kind="show" id="8hx-Sg-sNM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -120,18 +118,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="할 일 확인하기" id="XBs-0w-Cix">
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="xmB-4F-gnk">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gLx-Lw-daa">
-                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="추가"/>
-                                <connections>
-                                    <action selector="addList:" destination="cJX-6b-fja" eventType="touchUpInside" id="G5M-6s-5Vs"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="xmB-4F-gnk">
                             <connections>
-                                <action selector="addList:" destination="cJX-6b-fja" id="vcM-QN-mMd"/>
+                                <action selector="addList:" destination="cJX-6b-fja" id="ZF7-Bl-XY9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -139,6 +128,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeN-SA-KeB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2113.740458015267" y="3.5211267605633805"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="d5i-FO-NOe">
+            <objects>
+                <viewController id="BEb-3q-iqm" customClass="ComposeViewController" customModule="MyMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dz4-aJ-VFJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="메모 내용 불러오기" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-vs-sTd">
+                                <rect key="frame" x="16" y="103" width="361" height="749"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FAV-sr-DxO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7wD-TE-kQY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OrA-S5-oVy">
+                            <connections>
+                                <action selector="close:" destination="BEb-3q-iqm" id="nDy-rG-9nH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FRm-0q-fxt">
+                            <connections>
+                                <action selector="save:" destination="BEb-3q-iqm" id="wU3-iH-7sb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="memoTextView" destination="e9y-vs-sTd" id="EjP-Ce-9f1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2J-uo-ff9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3956" y="4"/>
         </scene>
         <!--CompletedList-->
         <scene sceneID="Ifg-pI-kuU">
@@ -178,9 +207,34 @@
             </objects>
             <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wav-bw-M9f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L2W-4Y-msf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="3gq-YM-ekN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3mb-UX-iTY">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BEb-3q-iqm" kind="relationship" relationship="rootViewController" id="j54-qe-tYA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8ly-kv-9rb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3030" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <image name="team3.png" width="567" height="375"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -189,9 +243,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
