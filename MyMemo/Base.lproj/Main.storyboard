@@ -108,7 +108,7 @@
                                 <connections>
                                     <outlet property="memoLabel" destination="uCP-Xr-fSY" id="Ffn-8R-RoN"/>
                                     <outlet property="memoSwitch" destination="SO6-eD-Wic" id="FTd-J0-lRq"/>
-                                    <segue destination="L2W-4Y-msf" kind="show" id="8hx-Sg-sNM"/>
+                                    <segue destination="BEb-3q-iqm" kind="show" identifier="detailViewSegue" id="z5f-nB-ATK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -129,16 +129,16 @@
             </objects>
             <point key="canvasLocation" x="2113.740458015267" y="3.5211267605633805"/>
         </scene>
-        <!--Compose View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="d5i-FO-NOe">
             <objects>
-                <viewController id="BEb-3q-iqm" customClass="ComposeViewController" customModule="MyMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BEb-3q-iqm" customClass="DetailViewController" customModule="MyMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dz4-aJ-VFJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="메모 내용 불러오기" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-vs-sTd">
-                                <rect key="frame" x="16" y="103" width="361" height="749"/>
+                                <rect key="frame" x="16" y="103" width="361" height="666"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -150,11 +150,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="7wD-TE-kQY">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OrA-S5-oVy">
-                            <connections>
-                                <action selector="close:" destination="BEb-3q-iqm" id="nDy-rG-9nH"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="FRm-0q-fxt">
                             <connections>
                                 <action selector="save:" destination="BEb-3q-iqm" id="wU3-iH-7sb"/>
@@ -162,12 +157,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="memoTextView" destination="e9y-vs-sTd" id="EjP-Ce-9f1"/>
+                        <outlet property="memoTextView" destination="e9y-vs-sTd" id="BfF-Hp-2Je"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2J-uo-ff9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3956" y="4"/>
+            <point key="canvasLocation" x="3235.8778625954196" y="3.5211267605633805"/>
         </scene>
         <!--CompletedList-->
         <scene sceneID="Ifg-pI-kuU">
@@ -206,25 +201,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OO6-ym-OGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Wav-bw-M9f">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L2W-4Y-msf" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="3gq-YM-ekN"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3mb-UX-iTY">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BEb-3q-iqm" kind="relationship" relationship="rootViewController" id="j54-qe-tYA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8ly-kv-9rb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3030" y="4"/>
         </scene>
     </scenes>
     <resources>

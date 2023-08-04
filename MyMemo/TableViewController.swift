@@ -8,9 +8,11 @@
 import UIKit
 
 class TableViewController: UITableViewController {
+    // memoManager에 접근하는 변수 생성
+    var myMemo = MemoManager.myMemo
     
     // switch 상태 확인하는 변수
-    var switchStates = [Bool]()
+//    var switchStates = [Bool]()
     
     // 나중에 시간 표시할 수도 있으니까 남겨두기
     let formatter: DateFormatter = {
@@ -35,10 +37,8 @@ class TableViewController: UITableViewController {
         let ok = UIAlertAction(title: "확인", style: .default) { (_) in // 트레일링 클로저
             // 내용을 입력했을 때
             if let memoTitle = alert.textFields?[0].text {
-                // 입력값을 이용하여 Memo 객체 생성
-                let newMemo = Memo(content: memoTitle)
-                // Memo 객체를 MemoList 배열에 추가
-                Memo.MemoList.append(newMemo)
+                // MemoManager addMemo 함수 실행
+                self.myMemo.addMemo(content: memoTitle)
                 self.tableView.reloadData()
             }
         }
@@ -58,18 +58,18 @@ class TableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        tableView.reloadData()
+        tableView.reloadData()
 //        print(#function)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tableView.reloadData()
-   }
+        tableView.reloadData()
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Memo.MemoList.count
+        return myMemo.memoList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,14 +84,27 @@ class TableViewController: UITableViewController {
 //        cell.textLabel?.numberOfLines = 1
         
         // 셀의 기본 텍스트 레이블에 배열 변수의 값을 할당
-        // >> 이게 잘못됐네.. 셀의 기본 텍스트 레이블이 아니라 커스텀 셀안에 있는 memoLabel에 넣어야 함...
-        let target = Memo.MemoList[indexPath.row]
+        let target = myMemo.memoList[indexPath.row]
         cell.memoLabel?.text = target.content
                 
         // 메모 작성날짜 삽입
 //        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailViewSegue" {
+            if let destination = segue.destination as? DetailViewController {
+                if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                    // 선택한 셀의 인덱스와 입력값을 전달
+                    let selectedMemoIndex = selectedIndexPath.row
+                    let prepareMemo = myMemo.memoList[selectedMemoIndex]
+                    destination.prepareMemoIndex = selectedMemoIndex
+                    destination.prepareMemo = prepareMemo
+                }
+            }
+        }
     }
 
 }
