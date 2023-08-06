@@ -25,6 +25,7 @@ class TableViewController: UITableViewController {
     @IBAction func addList(_ sender: UIBarButtonItem) {
         print("버튼 클릭 : 추가")
         
+        // alert 콘솔창 오류 메세지 없애는 방법 알아보기
         // 인스턴스 생성
         let alert = UIAlertController(title: "할 일 추가", message: "", preferredStyle: .alert) // preferredStyle: .actionSheet -> 텍스트필드 없고 목록만 있는 형태
         
@@ -58,13 +59,18 @@ class TableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
+//        tableView.reloadData()
 //        print(#function)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 메모 수정 완료 시 테이블 뷰 업데이트
+        NotificationCenter.default.addObserver(self, selector: #selector(handleMemoUpdated), name: Notification.Name("MemoUpdated"), object: nil)
+    }
+    
+    @objc func handleMemoUpdated() {
         tableView.reloadData()
     }
     

@@ -32,6 +32,8 @@ class DetailViewController: UIViewController {
     
     @IBAction func save(_ sender: Any) {
         updateMemo = memoTextView.text
+        // NotificationCenter : 메모 수정 완료 알림
+        NotificationCenter.default.post(name: Notification.Name("MemoUpdated"), object: nil)
     }
     
 
