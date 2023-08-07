@@ -18,7 +18,7 @@ extension DetailViewController {
         // updateMemo를 받아 MemoManager updateMemo 함수 실행
         if let updateMemo = self.updateMemo, let prepareMemoIndex = prepareMemoIndex {
             let ok = UIAlertAction(title: "확인", style: .default) { (_) in
-                self.myMemo.updateMemo(at: prepareMemoIndex, newContent: updateMemo)
+                self.myMemo.updateMemo(at: prepareMemoIndex, newContent: updateMemo, isCompleted: true)
                 self.dismiss(animated: true, completion: nil)
             }
             alert.addAction(ok)

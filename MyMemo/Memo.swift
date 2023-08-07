@@ -9,10 +9,12 @@ import Foundation
 
 class Memo {
     var content: String
+    var isCompleted: Bool
 //    var insertDate: Date
 
-    init(content: String) {
-    self.content = content
+    init(content: String, isCompleted: Bool) {
+        self.content = content
+        self.isCompleted = isCompleted
 //    insertDate = Date()
     }
 }
