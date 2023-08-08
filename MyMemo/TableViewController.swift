@@ -8,49 +8,29 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    
-    // switch 상태 확인하는 변수
-    var switchStates = [Bool]()
-    
-    // 나중에 시간 표시할 수도 있으니까 남겨두기
-    let formatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateStyle = .long
-        f.timeStyle = .short
-        return f
-    }()
+    // memoManager에 접근하는 변수 생성
+    var myMemo = MemoManager.myMemo
         
     @IBAction func addList(_ sender: UIBarButtonItem) {
         print("버튼 클릭 : 추가")
         
-        // 인스턴스 생성
-        let alert = UIAlertController(title: "할 일 추가", message: "", preferredStyle: .alert) // preferredStyle: .actionSheet -> 텍스트필드 없고 목록만 있는 형태
-        
-        // Alert textField 작성 가이드
+        // alert 콘솔창 오류 메세지 없애는 방법 알아보기
+        let alert = UIAlertController(title: "할 일 추가", message: "", preferredStyle: .alert)
         alert.addTextField() { (tf) in
             tf.placeholder = "내용을 입력하세요."
         }
         
-        // 확인 버튼 객체 생성
-        let ok = UIAlertAction(title: "확인", style: .default) { (_) in // 트레일링 클로저
-            // 내용을 입력했을 때
+        let ok = UIAlertAction(title: "확인", style: .default) { (_) in
             if let memoTitle = alert.textFields?[0].text {
-                // 입력값을 이용하여 Memo 객체 생성
-                let newMemo = Memo(content: memoTitle)
-                // Memo 객체를 MemoList 배열에 추가
-                Memo.MemoList.append(newMemo)
+                self.myMemo.addMemo(content: memoTitle, isCompleted: true)
                 self.tableView.reloadData()
             }
         }
         
-        // 취소 버튼 객체 생성
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
-        // Alert에 버튼 객체 등록
         alert.addAction(ok)
         alert.addAction(cancel)
-        
-        // Alert 띄우기
         self.present(alert, animated: false)
 
     }
@@ -58,69 +38,74 @@ class TableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        tableView.reloadData()
-//        print(#function)
+        self.tableView.reloadData()
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        tableView.reloadData()
-   }
+    }
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Memo.MemoList.count
+        return myMemo.memoList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // TableViewCell 클래스에서 정의한 셀로 적용
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        
-        // 셀이 사용될 때마다 라벨/스위치 초기화
-//        cell.memoLabel.text = nil
-            
-        // 셀의 기본 텍스트 레이블 행 수 제한 없음
-//        cell.textLabel?.numberOfLines = 1
-        
-        // 셀의 기본 텍스트 레이블에 배열 변수의 값을 할당
-        // >> 이게 잘못됐네.. 셀의 기본 텍스트 레이블이 아니라 커스텀 셀안에 있는 memoLabel에 넣어야 함...
-        let target = Memo.MemoList[indexPath.row]
+        let target = myMemo.memoList[indexPath.row]
         cell.memoLabel?.text = target.content
-                
-        // 메모 작성날짜 삽입
-//        cell.detailTextLabel?.text = formatter.string(from: target.insertDate)
-        
+        cell.memoSwitch.isOn = target.isCompleted
+        cell.updateLabelStrikeThrough()
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let indexToDelete = indexPath.row
+            myMemo.deleteMemo(at: indexToDelete)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailViewSegue" {
+            if let destination = segue.destination as? DetailViewController {
+                if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                    let selectedMemoIndex = selectedIndexPath.row
+                    let prepareMemo = myMemo.memoList[selectedMemoIndex]
+                    destination.prepareMemoIndex = selectedMemoIndex
+                    destination.prepareMemo = prepareMemo
+                }
+            }
+        }
     }
 
 }
 
 class TableViewCell: UITableViewCell {
+    // memoManager에 접근하는 변수 생성
+    var myMemo = MemoManager.myMemo
     
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var memoSwitch: UISwitch!
-    
-    // 이전 텍스트를 저장할 변수 추가
-    private var previousText: String?
-    
-    // 스위치 상태를 저장하는 변수
-    var isSwitchOn = true
-    
+        
     @IBAction func memoSwitch(_ sender: UISwitch) {
-        isSwitchOn = sender.isOn
+        guard let tableView = superview as? UITableView,
+              let indexPath = tableView.indexPath(for: self) else { return }
+        let memo = myMemo.memoList[indexPath.row]
+        memo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
+        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted)
+        
+        // 로그 출력 (Memo 객체의 내용 출력)
+        for memo in myMemo.memoList { print(memo) }
     }
     
     func updateLabelStrikeThrough() {
-        if isSwitchOn {
-            // 스위치가 on인 경우 취소선을 없애고 이전 텍스트 복원
-            // >> 위아래 순서 바꾸니까 해결...
-            memoLabel.attributedText = nil
-            memoLabel.text = previousText
+        if memoSwitch.isOn {
+            memoLabel.attributedText = memoLabel.text?.removestrikeThrough()
         } else {
-            // 스위치가 off인 경우 취소선을 추가하고 이전 텍스트 저장
-            previousText = memoLabel.text
             memoLabel.attributedText = memoLabel.text?.strikeThrough()
         }
     }
@@ -133,20 +118,11 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    // 셀의 재사용
     override func prepareForReuse() {
         super.prepareForReuse()
         
         memoLabel.attributedText = nil
     }
-    
-//    // 라벨의 크기를 설정하는 메서드 (오버라이드)
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        // 라벨의 크기를 셀의 컨텐츠 뷰의 크기에 맞게 설정
-//        memoLabel.frame = memoLabel.bounds
-//    }
     
 }
 
@@ -154,6 +130,11 @@ extension String {
     func strikeThrough() -> NSAttributedString {
         let attributeString = NSMutableAttributedString(string: self)
         attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+    func removestrikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
         return attributeString
     }
 }
