@@ -45,6 +45,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myMemo.memoList.count
@@ -56,7 +57,6 @@ class TableViewController: UITableViewController {
         cell.memoLabel?.text = target.content
         cell.memoSwitch.isOn = target.isCompleted
         cell.updateLabelStrikeThrough()
-        cell.memo = target
         return cell
     }
     
@@ -89,13 +89,17 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var memoSwitch: UISwitch!
-    
-    var memo: Memo?
-    
+        
     @IBAction func memoSwitch(_ sender: UISwitch) {
-        guard let memo = memo else { return }
+        guard let tableView = superview as? UITableView,
+              let indexPath = tableView.indexPath(for: self) else { return }
+        let memo = myMemo.memoList[indexPath.row]
         memo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
+        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted)
+        
+        // 로그 출력 (Memo 객체의 내용 출력)
+        for memo in myMemo.memoList { print(memo) }
     }
     
     func updateLabelStrikeThrough() {
