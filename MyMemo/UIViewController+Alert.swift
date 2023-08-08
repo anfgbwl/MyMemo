@@ -27,6 +27,9 @@ extension DetailViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    // 작성된 메모를 삭제하는 Alert
+//    func managementAlert(
+    
 }
 
 

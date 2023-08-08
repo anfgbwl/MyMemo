@@ -29,6 +29,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var memoManagement: UIBarButtonItem!
     
     @IBAction func save(_ sender: Any) {
         updateMemo = memoTextView.text
@@ -36,11 +37,22 @@ class DetailViewController: UIViewController {
         NotificationCenter.default.post(name: Notification.Name("MemoUpdated"), object: nil)
     }
     
-
+    @IBAction func memoManagement(_ sender: Any) {
+        let memoManagementAlert = UIAlertController(title: "", message: "원하시는 기능을 선택해주세요.", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let delete = UIAlertAction(title: "메모 삭제", style: .default) { [self] (_) in
+            self.myMemo.deleteMemo(at: prepareMemoIndex!)
+            self.navigationController?.popViewController(animated: true)
+        }
+        memoManagementAlert.addAction(cancel)
+        memoManagementAlert.addAction(delete)
+        self.present(memoManagementAlert, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         memoTextView.text = prepareMemo?.content
     }
-
+    
 }
