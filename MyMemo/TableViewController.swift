@@ -87,58 +87,20 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var memoSwitch: UISwitch!
     
-//    // 이전 텍스트를 저장할 변수 추가
-    private var previousText: String?
-//
-//    // 스위치 상태를 저장하는 변수
-//    var isSwitchOn = true
-    
-    // 스위치 상태 가져오기
-    var memo: Memo? {
-        didSet {
-            guard let memo = memo else { return }
-            memoLabel.text = memo.content
-            memoSwitch.isOn = memo.isCompleted
-        }
-    }
+    var memo: Memo?
     
     @IBAction func memoSwitch(_ sender: UISwitch) {
-//        isSwitchOn = sender.isOn
-//        updateLabelStrikeThrough()
         guard let memo = memo else { return }
         memo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
     }
     
     func updateLabelStrikeThrough() {
-        // 스위치가 on인 경우 취소선을 없애고 이전 텍스트 복원
         if memoSwitch.isOn {
-            memoLabel.attributedText = nil
-            memoLabel.text = previousText
-            
+            memoLabel.attributedText = memoLabel.text?.removestrikeThrough()
         } else {
-            // 스위치가 off인 경우 취소선을 추가
-            previousText = memoLabel.text
             memoLabel.attributedText = memoLabel.text?.strikeThrough()
         }
-//        if isSwitchOn {
-//            // 스위치가 on인 경우 취소선을 없애고 이전 텍스트 복원
-//            memoLabel.attributedText = nil
-//            memoLabel.text = previousText
-////            if let tableView = superview as? UITableView, let indexPath = tableView.indexPath(for: self) {
-////                let memoIndex = indexPath.row
-////                myMemo.updateMemo(at: memoIndex, newContent: memoLabel.text!, isCompleted: true)
-////            }
-//        } else {
-//            // 스위치가 off인 경우 취소선을 추가하고 이전 텍스트 저장
-//            previousText = memoLabel.text
-//            memoLabel.attributedText = memoLabel.text?.strikeThrough()
-////            if let tableView = superview as? UITableView, let indexPath = tableView.indexPath(for: self) {
-////                let memoIndex = indexPath.row
-////                myMemo.updateMemo(at: memoIndex, newContent: memoLabel.text!, isCompleted: false)
-////            }
-//
-//        }
     }
     
     override func awakeFromNib() {
@@ -149,19 +111,10 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-//     셀의 재사용
     override func prepareForReuse() {
         super.prepareForReuse()
         
-//        memoLabel.attributedText = nil
-        
-//        memoLabel.text = nil
-//        memoSwitch.isOn = true
-
-//        isSwitchOn = true // 스위치 상태 초기화
-        // 스위치의 상태를 기존 상태로 설정
-//        memoSwitch.isOn = ((memo?.isCompleted) != nil)
-        updateLabelStrikeThrough() // 셀 상태에 따라 라벨에 취소선 적용
+        memoLabel.attributedText = nil
     }
     
 }
@@ -170,6 +123,11 @@ extension String {
     func strikeThrough() -> NSAttributedString {
         let attributeString = NSMutableAttributedString(string: self)
         attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+    func removestrikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
         return attributeString
     }
 }
