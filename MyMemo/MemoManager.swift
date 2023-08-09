@@ -20,12 +20,13 @@ class MemoManager {
     }
 
     // 메모 수정
-    func updateMemo(at index: Int, newContent: String, isCompleted: Bool) {
+    func updateMemo(at index: Int, newContent: String, isCompleted: Bool, insertDate: Date) {
         guard index >= 0 && index < memoList.count else {
             return
         }
         memoList[index].content = newContent
         memoList[index].isCompleted = isCompleted
+        memoList[index].insertDate = insertDate
     }
 
     // 메모 삭제

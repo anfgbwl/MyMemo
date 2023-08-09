@@ -8,6 +8,13 @@
 import UIKit
 
 class TableViewController: UITableViewController {
+    let formatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "Ko_kr")
+        return f
+    }()
     // memoManager에 접근하는 변수 생성
     var myMemo = MemoManager.myMemo
         
@@ -56,6 +63,7 @@ class TableViewController: UITableViewController {
         let target = myMemo.memoList[indexPath.row]
         cell.memoLabel?.text = target.content
         cell.memoSwitch.isOn = target.isCompleted
+        cell.dateLabel?.text = formatter.string(from: target.insertDate)
         cell.updateLabelStrikeThrough()
         return cell
     }
@@ -88,6 +96,7 @@ class TableViewCell: UITableViewCell {
     var myMemo = MemoManager.myMemo
     
     @IBOutlet weak var memoLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var memoSwitch: UISwitch!
         
     @IBAction func memoSwitch(_ sender: UISwitch) {
@@ -96,7 +105,7 @@ class TableViewCell: UITableViewCell {
         let memo = myMemo.memoList[indexPath.row]
         memo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
-        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted)
+        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate)
         
         // 로그 출력 (Memo 객체의 내용 출력)
         for memo in myMemo.memoList { print(memo) }
