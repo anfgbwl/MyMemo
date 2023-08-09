@@ -18,7 +18,10 @@ extension DetailViewController {
         // updateMemo를 받아 MemoManager updateMemo 함수 실행
         if let updateMemo = self.updateMemo, let prepareMemoIndex = prepareMemoIndex {
             let ok = UIAlertAction(title: "확인", style: .default) { (_) in
-                self.myMemo.updateMemo(at: prepareMemoIndex, newContent: updateMemo, isCompleted: true)
+                self.myMemo.updateMemo(at: prepareMemoIndex, newContent: updateMemo, isCompleted: true, insertDate: Date())
+                self.prepareMemo?.content = updateMemo  // 메모 내용 업데이트
+                self.prepareMemo?.insertDate = Date()   // insertDate 업데이트
+                self.dateLabel.text = self.formatter.string(from: Date())  // 날짜 라벨 갱신
                 self.dismiss(animated: true, completion: nil)
             }
             alert.addAction(ok)
@@ -27,8 +30,6 @@ extension DetailViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    // 작성된 메모를 삭제하는 Alert
-//    func managementAlert(
     
 }
 

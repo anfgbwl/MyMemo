@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		3F7EF70E2A7CCAED00A971DC /* MemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7EF70D2A7CCAED00A971DC /* MemoManager.swift */; };
 		3F7EF7122A81F4D100A971DC /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7EF7112A81F4D100A971DC /* CompleteViewController.swift */; };
+		3F7EF72D2A822BB900A971DC /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7142A822BB900A971DC /* GmarketSansBold.otf */; };
+		3F7EF7312A822BB900A971DC /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7182A822BB900A971DC /* NotoSansKR-Light.otf */; };
+		3F7EF7342A822BB900A971DC /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF71B2A822BB900A971DC /* GmarketSansMedium.otf */; };
+		3F7EF7362A822BB900A971DC /* BusanFont_Provisional.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF71D2A822BB900A971DC /* BusanFont_Provisional.otf */; };
+		3F7EF7382A822BB900A971DC /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF71F2A822BB900A971DC /* NotoSansKR-Bold.otf */; };
+		3F7EF73A2A822BB900A971DC /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7212A822BB900A971DC /* NotoSansKR-Thin.otf */; };
+		3F7EF73C2A822BB900A971DC /* BagelFatOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7232A822BB900A971DC /* BagelFatOne-Regular.ttf */; };
+		3F7EF73E2A822BB900A971DC /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7252A822BB900A971DC /* NotoSansKR-Medium.otf */; };
+		3F7EF73F2A822BB900A971DC /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7262A822BB900A971DC /* NotoSansKR-Black.otf */; };
+		3F7EF7412A822BB900A971DC /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7282A822BB900A971DC /* GmarketSansLight.otf */; };
+		3F7EF7422A822BB900A971DC /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7292A822BB900A971DC /* NotoSansKR-Regular.otf */; };
+		3F7EF7442A822BB900A971DC /* BlackHanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF72B2A822BB900A971DC /* BlackHanSans-Regular.ttf */; };
 		3FBF01AC2A78E7C400E3EB02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */; };
 		3FBF01AE2A78E7C400E3EB02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */; };
 		3FBF01B02A78E7C400E3EB02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AF2A78E7C400E3EB02 /* ViewController.swift */; };
@@ -25,6 +37,18 @@
 /* Begin PBXFileReference section */
 		3F7EF70D2A7CCAED00A971DC /* MemoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoManager.swift; sourceTree = "<group>"; };
 		3F7EF7112A81F4D100A971DC /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
+		3F7EF7142A822BB900A971DC /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
+		3F7EF7182A822BB900A971DC /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		3F7EF71B2A822BB900A971DC /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansMedium.otf; sourceTree = "<group>"; };
+		3F7EF71D2A822BB900A971DC /* BusanFont_Provisional.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BusanFont_Provisional.otf; sourceTree = "<group>"; };
+		3F7EF71F2A822BB900A971DC /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		3F7EF7212A822BB900A971DC /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		3F7EF7232A822BB900A971DC /* BagelFatOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BagelFatOne-Regular.ttf"; sourceTree = "<group>"; };
+		3F7EF7252A822BB900A971DC /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		3F7EF7262A822BB900A971DC /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
+		3F7EF7282A822BB900A971DC /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
+		3F7EF7292A822BB900A971DC /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		3F7EF72B2A822BB900A971DC /* BlackHanSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackHanSans-Regular.ttf"; sourceTree = "<group>"; };
 		3FBF01A82A78E7C400E3EB02 /* MyMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +75,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F7EF7132A8229EE00A971DC /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3F7EF7232A822BB900A971DC /* BagelFatOne-Regular.ttf */,
+				3F7EF72B2A822BB900A971DC /* BlackHanSans-Regular.ttf */,
+				3F7EF71D2A822BB900A971DC /* BusanFont_Provisional.otf */,
+				3F7EF7142A822BB900A971DC /* GmarketSansBold.otf */,
+				3F7EF7282A822BB900A971DC /* GmarketSansLight.otf */,
+				3F7EF71B2A822BB900A971DC /* GmarketSansMedium.otf */,
+				3F7EF7262A822BB900A971DC /* NotoSansKR-Black.otf */,
+				3F7EF71F2A822BB900A971DC /* NotoSansKR-Bold.otf */,
+				3F7EF7182A822BB900A971DC /* NotoSansKR-Light.otf */,
+				3F7EF7252A822BB900A971DC /* NotoSansKR-Medium.otf */,
+				3F7EF7292A822BB900A971DC /* NotoSansKR-Regular.otf */,
+				3F7EF7212A822BB900A971DC /* NotoSansKR-Thin.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		3FBF019F2A78E7C400E3EB02 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +127,7 @@
 				3FBF01B42A78E7C600E3EB02 /* Assets.xcassets */,
 				3FBF01B62A78E7C600E3EB02 /* LaunchScreen.storyboard */,
 				3FBF01B92A78E7C600E3EB02 /* Info.plist */,
+				3F7EF7132A8229EE00A971DC /* Font */,
 			);
 			path = MyMemo;
 			sourceTree = "<group>";
@@ -146,10 +190,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F7EF73A2A822BB900A971DC /* NotoSansKR-Thin.otf in Resources */,
+				3F7EF7412A822BB900A971DC /* GmarketSansLight.otf in Resources */,
+				3F7EF73F2A822BB900A971DC /* NotoSansKR-Black.otf in Resources */,
+				3F7EF72D2A822BB900A971DC /* GmarketSansBold.otf in Resources */,
 				3FBF01B82A78E7C600E3EB02 /* LaunchScreen.storyboard in Resources */,
+				3F7EF73C2A822BB900A971DC /* BagelFatOne-Regular.ttf in Resources */,
+				3F7EF7422A822BB900A971DC /* NotoSansKR-Regular.otf in Resources */,
+				3F7EF7442A822BB900A971DC /* BlackHanSans-Regular.ttf in Resources */,
 				3FBF01B52A78E7C600E3EB02 /* Assets.xcassets in Resources */,
 				3FE583EB2A7A2B8200FEB453 /* team3.png in Resources */,
+				3F7EF7312A822BB900A971DC /* NotoSansKR-Light.otf in Resources */,
+				3F7EF7382A822BB900A971DC /* NotoSansKR-Bold.otf in Resources */,
+				3F7EF7342A822BB900A971DC /* GmarketSansMedium.otf in Resources */,
+				3F7EF7362A822BB900A971DC /* BusanFont_Provisional.otf in Resources */,
 				3FBF01B32A78E7C400E3EB02 /* Main.storyboard in Resources */,
+				3F7EF73E2A822BB900A971DC /* NotoSansKR-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

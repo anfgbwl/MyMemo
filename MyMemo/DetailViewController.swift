@@ -8,6 +8,13 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    let formatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "Ko_kr")
+        return f
+    }()
     // memoManager에 접근하는 변수 생성
     var myMemo = MemoManager.myMemo
     
@@ -29,6 +36,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var memoManagement: UIBarButtonItem!
     
     @IBAction func save(_ sender: Any) {
@@ -52,7 +60,25 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        memoTextView.delegate = self
+        memoTextView.isScrollEnabled = false
         memoTextView.text = prepareMemo?.content
+        dateLabel.text = formatter.string(from: prepareMemo!.insertDate)
+
     }
     
+}
+
+extension DetailViewController : UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        
+        textView.constraints.forEach{ (constraint) in
+            if constraint.firstAttribute == .height {
+                constraint.constant = estimatedSize.height
+            }
+        }
+    }
 }

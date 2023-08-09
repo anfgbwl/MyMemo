@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6mo-tr-FyC">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <accessibilityOverrides/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -36,11 +37,11 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="firstButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tBg-Ac-wt5"/>
-                                    <segue destination="cJX-6b-fja" kind="show" id="KBV-n4-MeY"/>
+                                    <segue destination="y16-oC-JDf" kind="show" id="Ktp-JZ-FWe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utf-fQ-6zj">
-                                <rect key="frame" x="118" y="595" width="156" height="35"/>
+                                <rect key="frame" x="118" y="565" width="156" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <state key="normal" title="Button"/>
@@ -54,7 +55,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="secondButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wr9-9X-KvJ"/>
-                                    <segue destination="cnT-y3-aQq" kind="show" id="7BT-5H-HRK"/>
+                                    <segue destination="cnT-y3-aQq" kind="show" id="uDv-c3-Wcq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,64 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007" y="4"/>
-        </scene>
-        <!--할 일 확인하기-->
-        <scene sceneID="Fft-hc-lpA">
-            <objects>
-                <tableViewController id="cJX-6b-fja" customClass="TableViewController" customModule="MyMemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="9W1-1h-jrF">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="20" reuseIdentifier="TableViewCell" rowHeight="48" id="McD-wK-MZt" customClass="TableViewCell" customModule="MyMemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="48"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="McD-wK-MZt" id="FTL-NO-afm">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="48"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCP-Xr-fSY">
-                                            <rect key="frame" x="20" y="11" width="298" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SO6-eD-Wic">
-                                            <rect key="frame" x="326" y="8" width="49" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="onTintColor" name="AccentColor"/>
-                                            <connections>
-                                                <action selector="memoSwitch:" destination="McD-wK-MZt" eventType="valueChanged" id="rGb-wT-NcW"/>
-                                            </connections>
-                                        </switch>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="memoLabel" destination="uCP-Xr-fSY" id="Ffn-8R-RoN"/>
-                                    <outlet property="memoSwitch" destination="SO6-eD-Wic" id="FTd-J0-lRq"/>
-                                    <segue destination="BEb-3q-iqm" kind="show" identifier="detailViewSegue" id="z5f-nB-ATK"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="cJX-6b-fja" id="yX7-9Z-yCf"/>
-                            <outlet property="delegate" destination="cJX-6b-fja" id="QAW-fg-bQA"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="할 일 확인하기" id="XBs-0w-Cix">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="xmB-4F-gnk">
-                            <connections>
-                                <action selector="addList:" destination="cJX-6b-fja" id="ZF7-Bl-XY9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YeN-SA-KeB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2113.740458015267" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2097" y="4"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="d5i-FO-NOe">
@@ -137,17 +81,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="메모 내용 불러오기" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-vs-sTd">
-                                <rect key="frame" x="16" y="103" width="361" height="666"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzh-Qw-w5r">
+                                <rect key="frame" x="0.0" y="603" width="393" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="MSh-pH-Ah9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e9y-vs-sTd">
+                                <rect key="frame" x="16" y="113" width="361" height="500"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="361" id="HcE-KK-6wI"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="메모">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="20" name="BusanFont_Provisional"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="20"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="20" name="BusanFont_Provisional"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="내용">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="20" name="BusanFont_Provisional"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="20"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="20" name="BusanFont_Provisional"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="불러오기">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="20" name="BusanFont_Provisional"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="20"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FAV-sr-DxO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e9y-vs-sTd" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="16" id="4cR-mI-icu"/>
+                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="e9y-vs-sTd" secondAttribute="trailing" constant="16" id="7yE-Jj-5UJ"/>
+                            <constraint firstItem="e9y-vs-sTd" firstAttribute="bottom" secondItem="fzh-Qw-w5r" secondAttribute="top" constant="20" id="8SF-sW-hG0"/>
+                            <constraint firstItem="fzh-Qw-w5r" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" id="9WV-uU-umz"/>
+                            <constraint firstItem="e9y-vs-sTd" firstAttribute="top" secondItem="FAV-sr-DxO" secondAttribute="top" constant="10" id="GSG-GD-uTa"/>
+                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="fzh-Qw-w5r" secondAttribute="trailing" id="yj1-Pb-AO3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7wD-TE-kQY">
                         <rightBarButtonItems>
@@ -164,13 +161,14 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateLabel" destination="fzh-Qw-w5r" id="y7r-0O-fGg"/>
                         <outlet property="memoManagement" destination="Dr5-ae-L48" id="vTD-2w-bHt"/>
-                        <outlet property="memoTextView" destination="e9y-vs-sTd" id="BfF-Hp-2Je"/>
+                        <outlet property="memoTextView" destination="e9y-vs-sTd" id="0Vh-Mf-56H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2J-uo-ff9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3156" y="4"/>
+            <point key="canvasLocation" x="4081.679389312977" y="3.5211267605633805"/>
         </scene>
         <!--완료한 일 보기-->
         <scene sceneID="Ifg-pI-kuU">
@@ -216,6 +214,7 @@
                         <viewLayoutGuide key="safeArea" id="nT0-st-Ooj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="gAa-cf-EqH"/>
                     <navigationItem key="navigationItem" title="완료한 일 보기" id="YhA-Ki-IUG">
                         <barButtonItem key="rightBarButtonItem" title="편집" id="C6x-c8-GxW"/>
                     </navigationItem>
@@ -225,29 +224,98 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpL-OV-Fo6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2113.740458015267" y="737.32394366197184"/>
+            <point key="canvasLocation" x="3040" y="728"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6UZ-2b-rgE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="6mo-tr-FyC" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OO6-ym-OGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6mo-tr-FyC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y6S-TV-b6y">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XnG-gm-K0w">
-                        <rect key="frame" x="0.0" y="769" width="393" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qhl-yL-Bb1"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4B8-4y-8Gc"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OO6-ym-OGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1285" y="4"/>
+        </scene>
+        <!--할 일 확인하기-->
+        <scene sceneID="hxp-II-ip5">
+            <objects>
+                <tableViewController id="y16-oC-JDf" customClass="TableViewController" customModule="MyMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Y2q-Bg-bNL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="20" reuseIdentifier="TableViewCell" id="RFr-82-ElI" customClass="TableViewCell" customModule="MyMemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RFr-82-ElI" id="r9I-yn-jSD">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMM-KG-66R">
+                                            <rect key="frame" x="20" y="18" width="298" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="20" name="BusanFont_Provisional"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Iu-h7-I8u">
+                                            <rect key="frame" x="20" y="42" width="298" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ob-zA-8fQ">
+                                            <rect key="frame" x="326" y="25" width="49" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="onTintColor" name="AccentColor"/>
+                                            <connections>
+                                                <action selector="memoSwitch:" destination="RFr-82-ElI" eventType="valueChanged" id="kaU-Nt-vmm"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="3Iu-h7-I8u" id="ugE-UW-ck8"/>
+                                    <outlet property="memoLabel" destination="bMM-KG-66R" id="i0I-wA-sW2"/>
+                                    <outlet property="memoSwitch" destination="0ob-zA-8fQ" id="4NS-UA-svY"/>
+                                    <segue destination="BEb-3q-iqm" kind="show" identifier="detailViewSegue" id="3hM-2L-xL0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="y16-oC-JDf" id="LNd-Qv-7XO"/>
+                            <outlet property="delegate" destination="y16-oC-JDf" id="YuJ-X7-D20"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="할 일 확인하기" id="P5d-gG-wsJ">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="8Hp-EA-8Eq">
+                            <connections>
+                                <action selector="addList:" destination="y16-oC-JDf" id="SLB-1L-kkX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Svy-GQ-Qds" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3040.4580152671756" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
@@ -267,6 +335,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
