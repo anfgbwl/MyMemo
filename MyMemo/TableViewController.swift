@@ -107,6 +107,7 @@ class TableViewCell: UITableViewCell {
         updateLabelStrikeThrough()
         myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate)
         
+        
         // 로그 출력 (Memo 객체의 내용 출력)
         for memo in myMemo.memoList { print(memo) }
     }

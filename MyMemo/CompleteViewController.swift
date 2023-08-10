@@ -12,7 +12,27 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     var completedMemos: [Memo] = []
     
     @IBOutlet weak var completeTableView: UITableView!
+    @IBAction func completeMemoSwitch(_ sender: UISwitch) {
+        
+        guard let cell = sender.superview?.superview as? CompleteViewCell, // 스위치의 상위 뷰 찾기
+          let indexPath = completeTableView.indexPath(for: cell) else { return }
     
+        let memo = myMemo.memoList[indexPath.row]
+        memo.isCompleted = sender.isOn
+        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate)
+        
+        if memo.isCompleted {
+            // completedMemos 배열에서 제거하고 셀을 삭제
+            completedMemos.remove(at: indexPath.row)
+            completeTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
+        
+//        // 셀(메모) 상태 변경 알림
+//        NotificationCenter.default.post(name: Notification.Name("completeMemoUpdated"), object: nil)
+//        for memo in myMemo.memoList { print(memo) }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -20,10 +40,17 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         print("\(completedMemos)")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        NotificationCenter.default.addObserver(self, selector: #selector(updateMemoStatus(_:)), name: NSNotification.Name("completeMemoUpdated"), object: nil)
     }
+    
+    @objc func updateMemoStatus(_ notification: Notification) {
+            // 메모 상태가 업데이트되었을 때 테이블 뷰 업데이트
+            completeTableView.reloadData()
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return completedMemos.count
@@ -33,6 +60,7 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteViewCell", for: indexPath) as! CompleteViewCell
         let targetMemo = completedMemos[indexPath.row]
         cell.completeMemoLabel?.text = targetMemo.content
+        cell.completeMemoSwitch.isOn = targetMemo.isCompleted
         return cell
     }
     
@@ -52,6 +80,10 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
 }
 
 class CompleteViewCell : UITableViewCell {
+    var myMemo = MemoManager.myMemo
+    
     @IBOutlet weak var completeMemoLabel: UILabel!
-
+    @IBOutlet weak var completeMemoSwitch: UISwitch!
+    
+    
 }
