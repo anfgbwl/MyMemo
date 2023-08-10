@@ -21,7 +21,6 @@ extension DetailViewController {
                 self.myMemo.updateMemo(at: prepareMemoIndex, newContent: updateMemo, isCompleted: true, insertDate: Date())
                 self.prepareMemo?.content = updateMemo  // 메모 내용 업데이트
                 self.prepareMemo?.insertDate = Date()   // insertDate 업데이트
-                self.dateLabel.text = self.formatter.string(from: Date())  // 날짜 라벨 갱신
                 self.dismiss(animated: true, completion: nil)
             }
             alert.addAction(ok)
@@ -29,7 +28,6 @@ extension DetailViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-    
     
 }
 

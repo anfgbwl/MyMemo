@@ -35,7 +35,21 @@ class MemoManager {
             return
         }
         memoList.remove(at: index)
-        
+    }
+    
+    // 모든 메모 삭제
+    func deleteAllCompletedMemos() {
+        var indexesToRemove: [Int] = []
+        for (index, memo) in memoList.enumerated() {
+            if !memo.isCompleted {
+                indexesToRemove.append(index)
+            }
+        }
+        // 인덱스를 역순으로 정렬하여 삭제해야 정확한 삭제가 이루어집니다
+        let reversedIndexes = indexesToRemove.sorted(by: >)
+        for index in reversedIndexes {
+            deleteMemo(at: index)
+        }
     }
 
 }

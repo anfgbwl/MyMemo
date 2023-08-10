@@ -29,14 +29,16 @@ class DetailViewController: UIViewController {
                 if updateMemo != prepareMemo?.content {
                     alert(title: "저장하기", message: "저장하시겠습니까?")
                 } else {
-                    alert(title: "저장하기", message: "내용이 없습니다.")
+                    let checkAlert = UIAlertController(title: "수정사항이 없습니다.", message: "", preferredStyle: .alert)
+                    self.present(checkAlert, animated: false)
+                    dismiss(animated: true)
+                    
                 }
             }
         }
     }
     
     @IBOutlet weak var memoTextView: UITextView!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var memoManagement: UIBarButtonItem!
     
     @IBAction func save(_ sender: Any) {
@@ -46,12 +48,13 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func memoManagement(_ sender: Any) {
-        let memoManagementAlert = UIAlertController(title: "", message: "원하시는 기능을 선택해주세요.", preferredStyle: .actionSheet)
+        let memoManagementAlert = UIAlertController(title: "", message: "해당 메모를 삭제합니다.", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let delete = UIAlertAction(title: "메모 삭제", style: .default) { [self] (_) in
             self.myMemo.deleteMemo(at: prepareMemoIndex!)
             self.navigationController?.popViewController(animated: true)
         }
+        delete.setValue(UIColor.red, forKey: "titleTextColor")
         memoManagementAlert.addAction(cancel)
         memoManagementAlert.addAction(delete)
         self.present(memoManagementAlert, animated: true)
@@ -63,7 +66,6 @@ class DetailViewController: UIViewController {
         memoTextView.delegate = self
         memoTextView.isScrollEnabled = false
         memoTextView.text = prepareMemo?.content
-        dateLabel.text = formatter.string(from: prepareMemo!.insertDate)
 
     }
     

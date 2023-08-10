@@ -11,10 +11,24 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     var myMemo = MemoManager.myMemo
     var completedMemos: [Memo] = []
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBAction func editButton(_ sender: UIBarButtonItem) {
+        let editAlert = UIAlertController(title: "", message: "모든 메모가 삭제됩니다.", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let delete = UIAlertAction(title: "모든 메모 삭제", style: .default) { [self] (_) in
+            self.myMemo.deleteAllCompletedMemos()
+            self.navigationController?.popViewController(animated: true)
+        }
+        delete.setValue(UIColor.red, forKey: "titleTextColor")
+        editAlert.addAction(cancel)
+        editAlert.addAction(delete)
+        self.present(editAlert, animated: true)
+    }
+    
     @IBOutlet weak var completeTableView: UITableView!
     @IBAction func completeMemoSwitch(_ sender: UISwitch) {
         
-        guard let cell = sender.superview?.superview as? CompleteViewCell, // 스위치의 상위 뷰 찾기
+        guard let cell = sender.superview?.superview as? CompleteViewCell, // 스위치 상위 뷰 찾기
           let indexPath = completeTableView.indexPath(for: cell) else { return }
     
         let memo = myMemo.memoList[indexPath.row]
@@ -28,11 +42,6 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
 
-        
-//        // 셀(메모) 상태 변경 알림
-//        NotificationCenter.default.post(name: Notification.Name("completeMemoUpdated"), object: nil)
-//        for memo in myMemo.memoList { print(memo) }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -43,8 +52,6 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(updateMemoStatus(_:)), name: NSNotification.Name("completeMemoUpdated"), object: nil)
     }
     
     @objc func updateMemoStatus(_ notification: Notification) {
