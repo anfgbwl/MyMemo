@@ -29,7 +29,7 @@ class TableViewController: UITableViewController {
         
         let ok = UIAlertAction(title: "확인", style: .default) { (_) in
             if let memoTitle = alert.textFields?[0].text {
-                self.myMemo.addMemo(content: memoTitle, isCompleted: true)
+                self.myMemo.addMemo(content: memoTitle, isCompleted: true, priority: "", category: "", progress: 0)
                 self.tableView.reloadData()
             }
         }
@@ -105,8 +105,7 @@ class TableViewCell: UITableViewCell {
         let memo = myMemo.memoList[indexPath.row]
         memo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
-        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate)
-        
+        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate, targetDate: memo.targetDate, priority: memo.priority, category: memo.category, progress: memo.progress)
         
         // 로그 출력 (Memo 객체의 내용 출력)
         for memo in myMemo.memoList { print(memo) }

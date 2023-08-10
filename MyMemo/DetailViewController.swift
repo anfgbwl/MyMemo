@@ -8,13 +8,6 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    let formatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateStyle = .long
-        f.timeStyle = .short
-        f.locale = Locale(identifier: "Ko_kr")
-        return f
-    }()
     // memoManager에 접근하는 변수 생성
     var myMemo = MemoManager.myMemo
     
@@ -22,29 +15,50 @@ class DetailViewController: UIViewController {
     var prepareMemo: Memo?
     var prepareMemoIndex: Int?
     
-    // 멤버 변수로 memo 선언
-    var updateMemo: String? {
-        didSet {
-            if let updateMemo = updateMemo {
-                if updateMemo != prepareMemo?.content {
-                    alert(title: "저장하기", message: "저장하시겠습니까?")
-                } else {
-                    let checkAlert = UIAlertController(title: "수정사항이 없습니다.", message: "", preferredStyle: .alert)
-                    self.present(checkAlert, animated: false)
-                    dismiss(animated: true)
-                    
-                }
-            }
-        }
-    }
     
     @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var targetDatePicker: UIDatePicker!
+    @IBOutlet weak var priorityButton: UIButton!
+    @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var memoManagement: UIBarButtonItem!
     
+    @IBAction func priorityButton(_ sender: UIButton) {
+        print("중요도 선택")
+        let noPriority = UIAction(title: "없음", handler: { _ in print("없음") })
+        let lowPriority = UIAction(title: "낮음", handler: { _ in print("낮음") })
+        let mediumPriority = UIAction(title: "중간", handler: { _ in print("중간") })
+        let highPriority = UIAction(title: "높음", handler: { _ in print("높음") })
+        self.priorityButton.menu = UIMenu(title: "", children: [noPriority, lowPriority, mediumPriority, highPriority])
+        self.priorityButton.showsMenuAsPrimaryAction = true
+        self.priorityButton.changesSelectionAsPrimaryAction = true
+    }
+    @IBAction func categoryButton(_ sender: UIButton) {
+        let normal = UIAction(title: "일반", handler: { _ in print("일반") })
+        let pet = UIAction(title: "반려동물", handler: { _ in print("반려동물") })
+        let home = UIAction(title: "집", handler: { _ in print("집") })
+        let work = UIAction(title: "과제", handler: { _ in print("과제") })
+        let exercise = UIAction(title: "운동", handler: { _ in print("운동") })
+        self.categoryButton.menu = UIMenu(title: "", children: [normal, pet, home, work, exercise])
+        self.categoryButton.showsMenuAsPrimaryAction = true
+        self.categoryButton.changesSelectionAsPrimaryAction = true
+    }
+    
     @IBAction func save(_ sender: Any) {
-        updateMemo = memoTextView.text
-        // NotificationCenter : 메모 수정 완료 알림
-        NotificationCenter.default.post(name: Notification.Name("MemoUpdated"), object: nil)
+        let content = memoTextView.text ?? ""
+        let isCompleted = true
+        let targetDate = targetDatePicker.date
+        let priority = priorityButton.titleLabel?.text ?? "없음"
+        let category = categoryButton.titleLabel?.text ?? "일반"
+        let progress = Int(progressSlider.value)
+        if let prepareMemoIndex = prepareMemoIndex {
+            myMemo.updateMemo(at: prepareMemoIndex, newContent: content, isCompleted: isCompleted, insertDate: Date(), targetDate: targetDate, priority: priority, category: category, progress: progress)
+        }
+        
+        // 수정 완료 알람
+        let checkAlert = UIAlertController(title: "수정되었습니다.", message: "", preferredStyle: .alert)
+        self.present(checkAlert, animated: false)
+        dismiss(animated: true)
     }
     
     @IBAction func memoManagement(_ sender: Any) {
@@ -66,6 +80,10 @@ class DetailViewController: UIViewController {
         memoTextView.delegate = self
         memoTextView.isScrollEnabled = false
         memoTextView.text = prepareMemo?.content
+        targetDatePicker.date = prepareMemo?.targetDate ?? Date()
+        priorityButton.titleLabel?.text = prepareMemo?.priority ?? "없음"
+        progressSlider.value = Float(prepareMemo?.progress ?? 0)
+        
 
     }
     

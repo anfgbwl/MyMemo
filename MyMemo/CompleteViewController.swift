@@ -33,7 +33,7 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     
         let memo = myMemo.memoList[indexPath.row]
         memo.isCompleted = sender.isOn
-        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate)
+        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate, targetDate: memo.targetDate, priority: memo.priority, category: memo.category, progress: memo.progress)
         
         if memo.isCompleted {
             // completedMemos 배열에서 제거하고 셀을 삭제

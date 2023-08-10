@@ -21,13 +21,15 @@
 		3F7EF7412A822BB900A971DC /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7282A822BB900A971DC /* GmarketSansLight.otf */; };
 		3F7EF7422A822BB900A971DC /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7292A822BB900A971DC /* NotoSansKR-Regular.otf */; };
 		3F7EF7442A822BB900A971DC /* BlackHanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF72B2A822BB900A971DC /* BlackHanSans-Regular.ttf */; };
+		3F7EF7A92A85132500A971DC /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7A82A85132500A971DC /* main.png */; };
+		3F7EF7AB2A8513AB00A971DC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7AA2A8513AB00A971DC /* icon.png */; };
+		3F7EF7AD2A85142800A971DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7AC2A85142800A971DC /* Assets.xcassets */; };
+		3F7EF7AF2A85148300A971DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7AE2A85148300A971DC /* Assets.xcassets */; };
 		3FBF01AC2A78E7C400E3EB02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */; };
 		3FBF01AE2A78E7C400E3EB02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */; };
 		3FBF01B02A78E7C400E3EB02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AF2A78E7C400E3EB02 /* ViewController.swift */; };
 		3FBF01B32A78E7C400E3EB02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01B12A78E7C400E3EB02 /* Main.storyboard */; };
-		3FBF01B52A78E7C600E3EB02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01B42A78E7C600E3EB02 /* Assets.xcassets */; };
 		3FBF01B82A78E7C600E3EB02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01B62A78E7C600E3EB02 /* LaunchScreen.storyboard */; };
-		3FE583EB2A7A2B8200FEB453 /* team3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01BF2A78EBC500E3EB02 /* team3.png */; };
 		3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EC2A7A31D800FEB453 /* TableViewController.swift */; };
 		3FE583EF2A7A494100FEB453 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EE2A7A494100FEB453 /* Memo.swift */; };
 		3FE583F12A7A673200FEB453 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583F02A7A673200FEB453 /* DetailViewController.swift */; };
@@ -49,15 +51,17 @@
 		3F7EF7282A822BB900A971DC /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
 		3F7EF7292A822BB900A971DC /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		3F7EF72B2A822BB900A971DC /* BlackHanSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackHanSans-Regular.ttf"; sourceTree = "<group>"; };
+		3F7EF7A82A85132500A971DC /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main.png; path = ../../../../Downloads/main.png; sourceTree = "<group>"; };
+		3F7EF7AA2A8513AB00A971DC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		3F7EF7AC2A85142800A971DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/AppIcons (1)/Assets.xcassets"; sourceTree = "<group>"; };
+		3F7EF7AE2A85148300A971DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FBF01A82A78E7C400E3EB02 /* MyMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3FBF01AF2A78E7C400E3EB02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3FBF01B22A78E7C400E3EB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3FBF01B42A78E7C600E3EB02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FBF01B72A78E7C600E3EB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FBF01B92A78E7C600E3EB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FBF01BF2A78EBC500E3EB02 /* team3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team3.png; sourceTree = "<group>"; };
 		3FE583EC2A7A31D800FEB453 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3FE583EE2A7A494100FEB453 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		3FE583F02A7A673200FEB453 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +117,8 @@
 		3FBF01AA2A78E7C400E3EB02 /* MyMemo */ = {
 			isa = PBXGroup;
 			children = (
-				3FBF01BF2A78EBC500E3EB02 /* team3.png */,
+				3F7EF7A82A85132500A971DC /* main.png */,
+				3F7EF7AA2A8513AB00A971DC /* icon.png */,
 				3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */,
 				3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */,
 				3FBF01B12A78E7C400E3EB02 /* Main.storyboard */,
@@ -124,7 +129,8 @@
 				3FE583EE2A7A494100FEB453 /* Memo.swift */,
 				3F7EF70D2A7CCAED00A971DC /* MemoManager.swift */,
 				3FE583F22A7A6A6200FEB453 /* UIViewController+Alert.swift */,
-				3FBF01B42A78E7C600E3EB02 /* Assets.xcassets */,
+				3F7EF7AC2A85142800A971DC /* Assets.xcassets */,
+				3F7EF7AE2A85148300A971DC /* Assets.xcassets */,
 				3FBF01B62A78E7C600E3EB02 /* LaunchScreen.storyboard */,
 				3FBF01B92A78E7C600E3EB02 /* Info.plist */,
 				3F7EF7132A8229EE00A971DC /* Font */,
@@ -198,13 +204,15 @@
 				3F7EF73C2A822BB900A971DC /* BagelFatOne-Regular.ttf in Resources */,
 				3F7EF7422A822BB900A971DC /* NotoSansKR-Regular.otf in Resources */,
 				3F7EF7442A822BB900A971DC /* BlackHanSans-Regular.ttf in Resources */,
-				3FBF01B52A78E7C600E3EB02 /* Assets.xcassets in Resources */,
-				3FE583EB2A7A2B8200FEB453 /* team3.png in Resources */,
 				3F7EF7312A822BB900A971DC /* NotoSansKR-Light.otf in Resources */,
 				3F7EF7382A822BB900A971DC /* NotoSansKR-Bold.otf in Resources */,
 				3F7EF7342A822BB900A971DC /* GmarketSansMedium.otf in Resources */,
+				3F7EF7AB2A8513AB00A971DC /* icon.png in Resources */,
 				3F7EF7362A822BB900A971DC /* BusanFont_Provisional.otf in Resources */,
 				3FBF01B32A78E7C400E3EB02 /* Main.storyboard in Resources */,
+				3F7EF7A92A85132500A971DC /* main.png in Resources */,
+				3F7EF7AD2A85142800A971DC /* Assets.xcassets in Resources */,
+				3F7EF7AF2A85148300A971DC /* Assets.xcassets in Resources */,
 				3F7EF73E2A822BB900A971DC /* NotoSansKR-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,19 +14,24 @@ class MemoManager {
     var memoList: [Memo] = []
     
     // 메모 추가
-    func addMemo(content: String, isCompleted: Bool) {
-        let newMemo = Memo(content: content, isCompleted: isCompleted)
+    func addMemo(content: String, isCompleted: Bool, priority: String?, category: String?, progress: Int?) {
+        let newMemo = Memo(content: content, isCompleted: isCompleted, priority: priority ?? "없음", category: category ?? "일반", progress:progress ?? 0)
         memoList.append(newMemo)
     }
 
     // 메모 수정
-    func updateMemo(at index: Int, newContent: String, isCompleted: Bool, insertDate: Date) {
+    func updateMemo(at index: Int, newContent: String, isCompleted: Bool, insertDate: Date, targetDate: Date?, priority: String?, category: String?, progress: Int?) {
         guard index >= 0 && index < memoList.count else {
             return
         }
         memoList[index].content = newContent
         memoList[index].isCompleted = isCompleted
         memoList[index].insertDate = insertDate
+        memoList[index].targetDate = targetDate
+        memoList[index].priority = priority
+        memoList[index].category = category
+        memoList[index].progress = progress
+
     }
 
     // 메모 삭제
