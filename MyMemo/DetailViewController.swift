@@ -23,27 +23,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var memoManagement: UIBarButtonItem!
     
-    @IBAction func priorityButton(_ sender: UIButton) {
-        print("중요도 선택")
-        let noPriority = UIAction(title: "없음", handler: { _ in print("없음") })
-        let lowPriority = UIAction(title: "낮음", handler: { _ in print("낮음") })
-        let mediumPriority = UIAction(title: "중간", handler: { _ in print("중간") })
-        let highPriority = UIAction(title: "높음", handler: { _ in print("높음") })
-        self.priorityButton.menu = UIMenu(title: "", children: [noPriority, lowPriority, mediumPriority, highPriority])
-        self.priorityButton.showsMenuAsPrimaryAction = true
-        self.priorityButton.changesSelectionAsPrimaryAction = true
+    @IBAction func progressSlider(_ sender: UISlider) {
+        let progressValue = sender.value
+        prepareMemo?.progress = Int(progressValue)
     }
-    @IBAction func categoryButton(_ sender: UIButton) {
-        let normal = UIAction(title: "일반", handler: { _ in print("일반") })
-        let pet = UIAction(title: "반려동물", handler: { _ in print("반려동물") })
-        let home = UIAction(title: "집", handler: { _ in print("집") })
-        let work = UIAction(title: "과제", handler: { _ in print("과제") })
-        let exercise = UIAction(title: "운동", handler: { _ in print("운동") })
-        self.categoryButton.menu = UIMenu(title: "", children: [normal, pet, home, work, exercise])
-        self.categoryButton.showsMenuAsPrimaryAction = true
-        self.categoryButton.changesSelectionAsPrimaryAction = true
-    }
-    
+
     @IBAction func save(_ sender: Any) {
         let content = memoTextView.text ?? ""
         let isCompleted = true
@@ -81,13 +65,38 @@ class DetailViewController: UIViewController {
         memoTextView.isScrollEnabled = false
         memoTextView.text = prepareMemo?.content
         targetDatePicker.date = prepareMemo?.targetDate ?? Date()
-        priorityButton.titleLabel?.text = prepareMemo?.priority ?? "없음"
+        setpriorityButton()
+        setCategoryButton()
         progressSlider.value = Float(prepareMemo?.progress ?? 0)
-        
+    }
+    
+    func setpriorityButton() {
+        let seletedPriority = {(action: UIAction) in
+            print(action.title)}
+        priorityButton.menu = UIMenu(children: [
+            UIAction(title: "없음", state: .on, handler: seletedPriority),
+            UIAction(title: "낮음", handler: seletedPriority),
+            UIAction(title: "중간", handler: seletedPriority),
+            UIAction(title: "높음", handler: seletedPriority)])
+        priorityButton.showsMenuAsPrimaryAction = true
+        priorityButton.changesSelectionAsPrimaryAction = true
+    }
+    
+    func setCategoryButton() {
 
+        let normal = UIAction(title: "일반", handler: { _ in print("일반") })
+        let pet = UIAction(title: "반려동물", handler: { _ in print("반려동물") })
+        let home = UIAction(title: "집", handler: { _ in print("집") })
+        let work = UIAction(title: "과제", handler: { _ in print("과제") })
+        let exercise = UIAction(title: "운동", handler: { _ in print("운동") })
+        self.categoryButton.menu = UIMenu(title: "", children: [normal, pet, home, work, exercise])
+        self.categoryButton.showsMenuAsPrimaryAction = true
+        self.categoryButton.changesSelectionAsPrimaryAction = true
     }
     
 }
+
+
 
 extension DetailViewController : UITextViewDelegate {
     

@@ -10,11 +10,6 @@
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="NotoSansKR-Medium.otf">
-            <string>NotoSansKR-Medium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
@@ -168,7 +163,10 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr6-pe-dEa">
-                                <rect key="frame" x="75" y="249.99999999999997" width="63" height="24.666666666666657"/>
+                                <rect key="frame" x="75" y="250" width="63" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="4Xh-ok-B1k"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="목표일자">
                                         <attributes>
@@ -180,14 +178,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="SzX-fS-sbv">
-                                <rect key="frame" x="205" y="245" width="113" height="35"/>
+                                <rect key="frame" x="205" y="245.33333333333334" width="113" height="34.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="113" id="qR1-eI-zs2"/>
                                 </constraints>
                                 <locale key="locale" localeIdentifier="ko_KR"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgF-1N-Xf3">
-                                <rect key="frame" x="75" y="311.66666666666669" width="47" height="25"/>
+                                <rect key="frame" x="75" y="312" width="47" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="36m-Wo-gtW"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="중요도">
                                         <attributes>
@@ -200,25 +201,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3RY-3u-o1Z">
-                                <rect key="frame" x="205" y="307.33333333333331" width="113" height="34"/>
+                                <rect key="frame" x="205" y="307" width="113" height="35"/>
                                 <menu key="menu" id="AVi-iJ-g3V">
                                     <children>
-                                        <command title="없음" menuElementState="on" id="bad-jX-PNs"/>
+                                        <command title="없음" id="bad-jX-PNs"/>
                                         <command title="낮음" id="ISs-nJ-FBz"/>
                                         <command title="중간" id="jR1-FX-MXT"/>
                                         <command title="높음" id="ZdN-Gk-DM0"/>
                                     </children>
                                 </menu>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Button">
-                                    <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Button"/>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="linkColor"/>
+                                    <color key="baseBackgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="priorityButton:" destination="BEb-3q-iqm" eventType="touchUpInside" id="VVd-cI-TuO"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6K-jX-TT6">
-                                <rect key="frame" x="75" y="373.66666666666669" width="62.666666666666657" height="25"/>
+                                <rect key="frame" x="75" y="374" width="62.666666666666657" height="24.666666666666686"/>
                                 <attributedString key="attributedText">
                                     <fragment content="카테고리">
                                         <attributes>
@@ -230,8 +232,9 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHU-aW-Pq4">
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHU-aW-Pq4">
                                 <rect key="frame" x="205" y="369.33333333333331" width="113" height="34"/>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <menu key="menu" id="kcY-K9-8gn">
                                     <children>
                                         <command title="일반" id="MIH-k6-dkt"/>
@@ -242,8 +245,12 @@
                                     </children>
                                 </menu>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Button">
-                                    <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Button"/>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="linkColor"/>
+                                    <color key="baseBackgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spY-vJ-PSj">
@@ -264,6 +271,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="113" id="jwB-5O-EEq"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="progressSlider:" destination="BEb-3q-iqm" eventType="valueChanged" id="yIA-UH-6pf"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FAV-sr-DxO"/>
@@ -271,28 +281,28 @@
                         <constraints>
                             <constraint firstItem="Tr3-LE-WDd" firstAttribute="centerX" secondItem="FAV-sr-DxO" secondAttribute="centerX" id="1uH-fq-gfg"/>
                             <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="HQv-9t-CNu" secondAttribute="trailing" constant="75" id="45G-59-HSA"/>
-                            <constraint firstItem="HQv-9t-CNu" firstAttribute="centerY" secondItem="spY-vJ-PSj" secondAttribute="centerY" id="5QE-Wp-Qma"/>
-                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="3RY-3u-o1Z" secondAttribute="trailing" constant="75" id="5ec-C6-zQo"/>
                             <constraint firstItem="spY-vJ-PSj" firstAttribute="top" secondItem="O6K-jX-TT6" secondAttribute="bottom" constant="37" id="5h8-jT-16u"/>
                             <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="sHU-aW-Pq4" secondAttribute="trailing" constant="75" id="9Hi-5J-acu"/>
                             <constraint firstItem="tgF-1N-Xf3" firstAttribute="top" secondItem="Pr6-pe-dEa" secondAttribute="bottom" constant="37" id="DWM-yO-BuX"/>
-                            <constraint firstItem="3RY-3u-o1Z" firstAttribute="centerY" secondItem="tgF-1N-Xf3" secondAttribute="centerY" id="EmP-fI-HY2"/>
+                            <constraint firstItem="sHU-aW-Pq4" firstAttribute="centerY" secondItem="O6K-jX-TT6" secondAttribute="centerY" id="EES-6F-C6c"/>
                             <constraint firstItem="Pr6-pe-dEa" firstAttribute="top" secondItem="Tr3-LE-WDd" secondAttribute="bottom" constant="50" id="EtW-1x-WHO"/>
                             <constraint firstItem="SzX-fS-sbv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pr6-pe-dEa" secondAttribute="trailing" constant="8" symbolic="YES" id="Fgi-i1-XQV"/>
+                            <constraint firstItem="tgF-1N-Xf3" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="GnJ-XS-CHf"/>
                             <constraint firstItem="e9y-vs-sTd" firstAttribute="top" secondItem="FAV-sr-DxO" secondAttribute="top" constant="20" id="HqQ-qn-ddF"/>
                             <constraint firstItem="O6K-jX-TT6" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="KFV-HS-bFi"/>
                             <constraint firstItem="HQv-9t-CNu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="spY-vJ-PSj" secondAttribute="trailing" constant="8" symbolic="YES" id="KpO-HM-HEJ"/>
+                            <constraint firstItem="HQv-9t-CNu" firstAttribute="centerY" secondItem="spY-vJ-PSj" secondAttribute="centerY" id="NkR-1Q-o8g"/>
+                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="3RY-3u-o1Z" secondAttribute="trailing" constant="75" id="PmG-93-Uza"/>
+                            <constraint firstItem="3RY-3u-o1Z" firstAttribute="centerY" secondItem="tgF-1N-Xf3" secondAttribute="centerY" id="Twr-F3-NSm"/>
                             <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="SzX-fS-sbv" secondAttribute="trailing" constant="75" id="VAO-dT-ej2"/>
                             <constraint firstItem="Pr6-pe-dEa" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="VpV-g0-TMo"/>
                             <constraint firstItem="e9y-vs-sTd" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="16" id="WGb-N7-SC6"/>
                             <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="e9y-vs-sTd" secondAttribute="trailing" constant="16" id="Wfu-Wt-cxh"/>
-                            <constraint firstItem="tgF-1N-Xf3" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="Xxo-6s-W8V"/>
                             <constraint firstItem="sHU-aW-Pq4" firstAttribute="leading" secondItem="O6K-jX-TT6" secondAttribute="trailing" constant="67.333333333333343" id="Xyr-9F-izB"/>
-                            <constraint firstItem="sHU-aW-Pq4" firstAttribute="centerY" secondItem="O6K-jX-TT6" secondAttribute="centerY" id="Y6W-2t-kwh"/>
-                            <constraint firstItem="3RY-3u-o1Z" firstAttribute="leading" secondItem="tgF-1N-Xf3" secondAttribute="trailing" constant="83" id="aR8-y2-atg"/>
+                            <constraint firstItem="3RY-3u-o1Z" firstAttribute="leading" secondItem="tgF-1N-Xf3" secondAttribute="trailing" constant="83" id="ZuC-M4-bop"/>
+                            <constraint firstItem="SzX-fS-sbv" firstAttribute="centerY" secondItem="Pr6-pe-dEa" secondAttribute="centerY" id="bfs-zz-pQL"/>
                             <constraint firstItem="Tr3-LE-WDd" firstAttribute="width" secondItem="dz4-aJ-VFJ" secondAttribute="width" multiplier="0.826972" id="gwy-Ef-lMm"/>
                             <constraint firstItem="Tr3-LE-WDd" firstAttribute="top" secondItem="e9y-vs-sTd" secondAttribute="bottom" constant="25" id="ia9-3m-JaF"/>
-                            <constraint firstItem="Pr6-pe-dEa" firstAttribute="centerY" secondItem="SzX-fS-sbv" secondAttribute="centerY" id="igZ-WD-4iP"/>
                             <constraint firstItem="e9y-vs-sTd" firstAttribute="centerX" secondItem="FAV-sr-DxO" secondAttribute="centerX" id="kls-ZR-Luy"/>
                             <constraint firstItem="spY-vJ-PSj" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="rOx-Si-Zr8"/>
                             <constraint firstItem="O6K-jX-TT6" firstAttribute="top" secondItem="tgF-1N-Xf3" secondAttribute="bottom" constant="37" id="t24-df-hqu"/>
@@ -408,7 +418,6 @@
         <!--Navigation Controller-->
         <scene sceneID="6UZ-2b-rgE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OO6-ym-OGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6mo-tr-FyC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y6S-TV-b6y">
@@ -420,6 +429,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4B8-4y-8Gc"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OO6-ym-OGi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1285" y="4"/>
         </scene>
@@ -533,9 +543,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
