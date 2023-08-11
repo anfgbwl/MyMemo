@@ -32,7 +32,6 @@
 		3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EC2A7A31D800FEB453 /* TableViewController.swift */; };
 		3FE583EF2A7A494100FEB453 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EE2A7A494100FEB453 /* Memo.swift */; };
 		3FE583F12A7A673200FEB453 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583F02A7A673200FEB453 /* DetailViewController.swift */; };
-		3FE583F32A7A6A6200FEB453 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583F22A7A6A6200FEB453 /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +62,6 @@
 		3FE583EC2A7A31D800FEB453 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		3FE583EE2A7A494100FEB453 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		3FE583F02A7A673200FEB453 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		3FE583F22A7A6A6200FEB453 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +75,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F11D4D82A85E375006DD56A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3FBF01AF2A78E7C400E3EB02 /* ViewController.swift */,
+				3FE583EC2A7A31D800FEB453 /* TableViewController.swift */,
+				3FE583F02A7A673200FEB453 /* DetailViewController.swift */,
+				3F7EF7112A81F4D100A971DC /* CompleteViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3F11D4D92A85E39F006DD56A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FE583EE2A7A494100FEB453 /* Memo.swift */,
+				3F7EF70D2A7CCAED00A971DC /* MemoManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F11D4DA2A85E482006DD56A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FBF01B12A78E7C400E3EB02 /* Main.storyboard */,
+				3FBF01B62A78E7C600E3EB02 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3F7EF7132A8229EE00A971DC /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,16 +146,10 @@
 				3F7EF7AA2A8513AB00A971DC /* icon.png */,
 				3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */,
 				3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */,
-				3FBF01B12A78E7C400E3EB02 /* Main.storyboard */,
-				3FBF01AF2A78E7C400E3EB02 /* ViewController.swift */,
-				3FE583EC2A7A31D800FEB453 /* TableViewController.swift */,
-				3FE583F02A7A673200FEB453 /* DetailViewController.swift */,
-				3F7EF7112A81F4D100A971DC /* CompleteViewController.swift */,
-				3FE583EE2A7A494100FEB453 /* Memo.swift */,
-				3F7EF70D2A7CCAED00A971DC /* MemoManager.swift */,
-				3FE583F22A7A6A6200FEB453 /* UIViewController+Alert.swift */,
+				3F11D4DA2A85E482006DD56A /* View */,
+				3F11D4D82A85E375006DD56A /* ViewController */,
+				3F11D4D92A85E39F006DD56A /* Model */,
 				3F7EF7AE2A85148300A971DC /* Assets.xcassets */,
-				3FBF01B62A78E7C600E3EB02 /* LaunchScreen.storyboard */,
 				3FBF01B92A78E7C600E3EB02 /* Info.plist */,
 				3F7EF7132A8229EE00A971DC /* Font */,
 			);
@@ -228,7 +249,6 @@
 				3F7EF7122A81F4D100A971DC /* CompleteViewController.swift in Sources */,
 				3F7EF70E2A7CCAED00A971DC /* MemoManager.swift in Sources */,
 				3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */,
-				3FE583F32A7A6A6200FEB453 /* UIViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -358,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -375,6 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TMQF6RX33C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyMemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -402,6 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TMQF6RX33C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyMemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

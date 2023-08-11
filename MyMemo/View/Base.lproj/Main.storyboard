@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <accessibilityOverrides/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -178,9 +178,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="SzX-fS-sbv">
-                                <rect key="frame" x="205" y="245.33333333333334" width="113" height="34.333333333333343"/>
+                                <rect key="frame" x="205" y="245" width="113" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="qR1-eI-zs2"/>
+                                    <constraint firstAttribute="width" constant="113" id="Jb8-aX-pTc"/>
+                                    <constraint firstAttribute="height" constant="35" id="yhE-2T-03f"/>
                                 </constraints>
                                 <locale key="locale" localeIdentifier="ko_KR"/>
                             </datePicker>
@@ -202,6 +203,10 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3RY-3u-o1Z">
                                 <rect key="frame" x="205" y="307" width="113" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="D77-ZP-fJ1"/>
+                                    <constraint firstAttribute="height" constant="35" id="anf-Tq-129"/>
+                                </constraints>
                                 <menu key="menu" id="AVi-iJ-g3V">
                                     <children>
                                         <command title="없음" id="bad-jX-PNs"/>
@@ -233,7 +238,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHU-aW-Pq4">
-                                <rect key="frame" x="205" y="369.33333333333331" width="113" height="34"/>
+                                <rect key="frame" x="205" y="369" width="113" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="113" id="CI0-mq-u14"/>
+                                    <constraint firstAttribute="height" constant="35" id="Qww-Bl-Ek9"/>
+                                </constraints>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <menu key="menu" id="kcY-K9-8gn">
                                     <children>
@@ -266,7 +275,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HQv-9t-CNu">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="HQv-9t-CNu">
                                 <rect key="frame" x="203" y="433.33333333333331" width="117" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="113" id="jwB-5O-EEq"/>
@@ -343,12 +352,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="frD-LA-Lds">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="frD-LA-Lds">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompleteViewCell" id="Xgz-aI-3Hr" customClass="CompleteViewCell" customModule="MyMemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="CompleteViewCell" id="Xgz-aI-3Hr" customClass="CompleteViewCell" customModule="MyMemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xgz-aI-3Hr" id="vnt-1d-GyA">
@@ -368,7 +376,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="F8l-Bj-TDB">
                                                     <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                    <color key="onTintColor" name="AccentColor"/>
+                                                    <color key="onTintColor" systemColor="linkColor"/>
                                                     <connections>
                                                         <action selector="completeMemoSwitch:" destination="cnT-y3-aQq" eventType="valueChanged" id="z3l-Xl-iNI"/>
                                                     </connections>
@@ -382,6 +390,7 @@
                                                 <constraint firstItem="F8l-Bj-TDB" firstAttribute="leading" secondItem="PoR-7d-1ix" secondAttribute="trailing" constant="6" id="sFP-Ld-kO0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="completeMemoLabel" destination="PoR-7d-1ix" id="N7Y-Ej-ziC"/>
                                             <outlet property="completeMemoSwitch" destination="F8l-Bj-TDB" id="AGt-hc-rWK"/>
@@ -397,6 +406,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nT0-st-Ooj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nT0-st-Ooj" firstAttribute="trailing" secondItem="frD-LA-Lds" secondAttribute="trailing" id="11m-Xz-26N"/>
+                            <constraint firstItem="frD-LA-Lds" firstAttribute="bottom" secondItem="nT0-st-Ooj" secondAttribute="bottom" constant="34" id="RX8-bH-Y7O"/>
+                            <constraint firstItem="frD-LA-Lds" firstAttribute="top" secondItem="nT0-st-Ooj" secondAttribute="top" id="sFQ-M3-zE8"/>
+                            <constraint firstItem="frD-LA-Lds" firstAttribute="leading" secondItem="nT0-st-Ooj" secondAttribute="leading" id="z0n-ef-lQr"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="gAa-cf-EqH"/>
                     <navigationItem key="navigationItem" title="완료한 일 보기" id="YhA-Ki-IUG">
@@ -442,7 +457,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="20" reuseIdentifier="TableViewCell" id="RFr-82-ElI" customClass="TableViewCell" customModule="MyMemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="RFr-82-ElI" customClass="TableViewCell" customModule="MyMemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RFr-82-ElI" id="r9I-yn-jSD">
@@ -482,7 +497,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="49" id="Qd9-Iw-va8"/>
                                             </constraints>
-                                            <color key="onTintColor" name="AccentColor"/>
+                                            <color key="onTintColor" systemColor="linkColor"/>
                                             <connections>
                                                 <action selector="memoSwitch:" destination="RFr-82-ElI" eventType="valueChanged" id="kaU-Nt-vmm"/>
                                             </connections>
@@ -491,6 +506,7 @@
                                     <constraints>
                                         <constraint firstItem="3Iu-h7-I8u" firstAttribute="top" secondItem="bMM-KG-66R" secondAttribute="bottom" constant="2" id="0WZ-mf-nO4"/>
                                         <constraint firstItem="bMM-KG-66R" firstAttribute="leading" secondItem="r9I-yn-jSD" secondAttribute="leading" constant="20" symbolic="YES" id="1aU-X9-pME"/>
+                                        <constraint firstItem="0ob-zA-8fQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Iu-h7-I8u" secondAttribute="trailing" constant="8" symbolic="YES" id="9sF-WD-gL0"/>
                                         <constraint firstAttribute="trailing" secondItem="0ob-zA-8fQ" secondAttribute="trailing" constant="20" symbolic="YES" id="AC0-Re-ZUV"/>
                                         <constraint firstAttribute="bottom" secondItem="3Iu-h7-I8u" secondAttribute="bottom" constant="17" id="J4S-aS-SYg"/>
                                         <constraint firstItem="bMM-KG-66R" firstAttribute="top" secondItem="r9I-yn-jSD" secondAttribute="top" constant="18" id="OR9-XQ-Bqq"/>
@@ -499,6 +515,7 @@
                                         <constraint firstItem="0ob-zA-8fQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bMM-KG-66R" secondAttribute="trailing" constant="8" symbolic="YES" id="tk6-um-PBB"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dateLabel" destination="3Iu-h7-I8u" id="ugE-UW-ck8"/>
                                     <outlet property="memoLabel" destination="bMM-KG-66R" id="i0I-wA-sW2"/>
@@ -529,9 +546,6 @@
     <resources>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="main.png" width="654" height="469"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
