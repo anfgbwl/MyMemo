@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
+   
     
     @IBAction func firstButtonTouch(_ sender: UIButton) {
         print("버튼 클릭 : 할 일 확인하기")
