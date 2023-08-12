@@ -163,48 +163,49 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr6-pe-dEa">
-                                <rect key="frame" x="75" y="250" width="63" height="25"/>
+                                <rect key="frame" x="65" y="250" width="65" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="4Xh-ok-B1k"/>
+                                    <constraint firstAttribute="width" constant="65" id="KJt-Yb-bG1"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="목표일자">
                                         <attributes>
                                             <font key="NSFont" size="17" name="NotoSansKR-Medium"/>
                                             <font key="NSOriginalFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="SzX-fS-sbv">
-                                <rect key="frame" x="205" y="245" width="113" height="35"/>
+                                <rect key="frame" x="205" y="245" width="123" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="Jb8-aX-pTc"/>
+                                    <constraint firstAttribute="width" constant="123" id="Nki-yB-yzE"/>
                                     <constraint firstAttribute="height" constant="35" id="yhE-2T-03f"/>
                                 </constraints>
                                 <locale key="locale" localeIdentifier="ko_KR"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgF-1N-Xf3">
-                                <rect key="frame" x="75" y="312" width="47" height="25"/>
+                                <rect key="frame" x="65" y="312" width="65" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="36m-Wo-gtW"/>
+                                    <constraint firstAttribute="width" constant="65" id="drA-Oz-Sfp"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="중요도">
                                         <attributes>
                                             <font key="NSFont" size="17" name="NotoSansKR-Medium"/>
                                             <font key="NSOriginalFont" metaFont="system" size="17"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3RY-3u-o1Z">
-                                <rect key="frame" x="205" y="307" width="113" height="35"/>
+                                <rect key="frame" x="205" y="307" width="123" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="D77-ZP-fJ1"/>
+                                    <constraint firstAttribute="width" constant="123" id="Gs0-1j-4UN"/>
                                     <constraint firstAttribute="height" constant="35" id="anf-Tq-129"/>
                                 </constraints>
                                 <menu key="menu" id="AVi-iJ-g3V">
@@ -225,7 +226,11 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6K-jX-TT6">
-                                <rect key="frame" x="75" y="374" width="62.666666666666657" height="24.666666666666686"/>
+                                <rect key="frame" x="65" y="374" width="65" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Y0Z-Ix-c2b"/>
+                                    <constraint firstAttribute="width" constant="65" id="asH-pR-8lT"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="카테고리">
                                         <attributes>
@@ -238,9 +243,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHU-aW-Pq4">
-                                <rect key="frame" x="205" y="369" width="113" height="35"/>
+                                <rect key="frame" x="205" y="369" width="123" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="CI0-mq-u14"/>
+                                    <constraint firstAttribute="width" constant="123" id="HoA-WB-WSc"/>
                                     <constraint firstAttribute="height" constant="35" id="Qww-Bl-Ek9"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="linkColor"/>
@@ -263,7 +268,10 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spY-vJ-PSj">
-                                <rect key="frame" x="75" y="435.66666666666669" width="47" height="25"/>
+                                <rect key="frame" x="65" y="436" width="65" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="SyI-3N-sZt"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="진행율">
                                         <attributes>
@@ -275,45 +283,60 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="HQv-9t-CNu">
-                                <rect key="frame" x="203" y="433.33333333333331" width="117" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="HQv-9t-CNu">
+                                <rect key="frame" x="203" y="433.66666666666669" width="127" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="113" id="jwB-5O-EEq"/>
+                                    <constraint firstAttribute="width" constant="123" id="Xa3-zV-MaB"/>
                                 </constraints>
                                 <connections>
                                     <action selector="progressSlider:" destination="BEb-3q-iqm" eventType="valueChanged" id="yIA-UH-6pf"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nr-gr-s3C">
+                                <rect key="frame" x="120" y="435" width="10.333333333333343" height="27"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="0">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="NotoSansKR-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" systemColor="linkColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FAV-sr-DxO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Tr3-LE-WDd" firstAttribute="centerX" secondItem="FAV-sr-DxO" secondAttribute="centerX" id="1uH-fq-gfg"/>
-                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="HQv-9t-CNu" secondAttribute="trailing" constant="75" id="45G-59-HSA"/>
                             <constraint firstItem="spY-vJ-PSj" firstAttribute="top" secondItem="O6K-jX-TT6" secondAttribute="bottom" constant="37" id="5h8-jT-16u"/>
-                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="sHU-aW-Pq4" secondAttribute="trailing" constant="75" id="9Hi-5J-acu"/>
                             <constraint firstItem="tgF-1N-Xf3" firstAttribute="top" secondItem="Pr6-pe-dEa" secondAttribute="bottom" constant="37" id="DWM-yO-BuX"/>
                             <constraint firstItem="sHU-aW-Pq4" firstAttribute="centerY" secondItem="O6K-jX-TT6" secondAttribute="centerY" id="EES-6F-C6c"/>
                             <constraint firstItem="Pr6-pe-dEa" firstAttribute="top" secondItem="Tr3-LE-WDd" secondAttribute="bottom" constant="50" id="EtW-1x-WHO"/>
-                            <constraint firstItem="SzX-fS-sbv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pr6-pe-dEa" secondAttribute="trailing" constant="8" symbolic="YES" id="Fgi-i1-XQV"/>
-                            <constraint firstItem="tgF-1N-Xf3" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="GnJ-XS-CHf"/>
+                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="HQv-9t-CNu" secondAttribute="trailing" constant="65" id="FaF-hc-cqO"/>
+                            <constraint firstItem="3nr-gr-s3C" firstAttribute="centerY" secondItem="spY-vJ-PSj" secondAttribute="centerY" id="FdY-N3-6PT"/>
+                            <constraint firstItem="tgF-1N-Xf3" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="65" id="GnJ-XS-CHf"/>
+                            <constraint firstItem="SzX-fS-sbv" firstAttribute="leading" secondItem="Pr6-pe-dEa" secondAttribute="trailing" constant="75" id="H3Q-kH-er9"/>
+                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="SzX-fS-sbv" secondAttribute="trailing" constant="65" id="HTL-0G-g5G"/>
                             <constraint firstItem="e9y-vs-sTd" firstAttribute="top" secondItem="FAV-sr-DxO" secondAttribute="top" constant="20" id="HqQ-qn-ddF"/>
-                            <constraint firstItem="O6K-jX-TT6" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="KFV-HS-bFi"/>
-                            <constraint firstItem="HQv-9t-CNu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="spY-vJ-PSj" secondAttribute="trailing" constant="8" symbolic="YES" id="KpO-HM-HEJ"/>
+                            <constraint firstItem="3nr-gr-s3C" firstAttribute="leading" secondItem="spY-vJ-PSj" secondAttribute="trailing" constant="-10" id="J6V-XO-mbV"/>
+                            <constraint firstItem="O6K-jX-TT6" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="65" id="KFV-HS-bFi"/>
                             <constraint firstItem="HQv-9t-CNu" firstAttribute="centerY" secondItem="spY-vJ-PSj" secondAttribute="centerY" id="NkR-1Q-o8g"/>
-                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="3RY-3u-o1Z" secondAttribute="trailing" constant="75" id="PmG-93-Uza"/>
                             <constraint firstItem="3RY-3u-o1Z" firstAttribute="centerY" secondItem="tgF-1N-Xf3" secondAttribute="centerY" id="Twr-F3-NSm"/>
-                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="SzX-fS-sbv" secondAttribute="trailing" constant="75" id="VAO-dT-ej2"/>
-                            <constraint firstItem="Pr6-pe-dEa" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="VpV-g0-TMo"/>
+                            <constraint firstItem="3RY-3u-o1Z" firstAttribute="leading" secondItem="tgF-1N-Xf3" secondAttribute="trailing" constant="75" id="U2d-qu-SrP"/>
+                            <constraint firstItem="Pr6-pe-dEa" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="65" id="VpV-g0-TMo"/>
                             <constraint firstItem="e9y-vs-sTd" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="16" id="WGb-N7-SC6"/>
                             <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="e9y-vs-sTd" secondAttribute="trailing" constant="16" id="Wfu-Wt-cxh"/>
-                            <constraint firstItem="sHU-aW-Pq4" firstAttribute="leading" secondItem="O6K-jX-TT6" secondAttribute="trailing" constant="67.333333333333343" id="Xyr-9F-izB"/>
-                            <constraint firstItem="3RY-3u-o1Z" firstAttribute="leading" secondItem="tgF-1N-Xf3" secondAttribute="trailing" constant="83" id="ZuC-M4-bop"/>
+                            <constraint firstItem="sHU-aW-Pq4" firstAttribute="leading" secondItem="O6K-jX-TT6" secondAttribute="trailing" constant="75" id="Yo0-wj-bzf"/>
+                            <constraint firstItem="HQv-9t-CNu" firstAttribute="leading" secondItem="spY-vJ-PSj" secondAttribute="trailing" constant="75" id="Z9T-zA-hsh"/>
                             <constraint firstItem="SzX-fS-sbv" firstAttribute="centerY" secondItem="Pr6-pe-dEa" secondAttribute="centerY" id="bfs-zz-pQL"/>
                             <constraint firstItem="Tr3-LE-WDd" firstAttribute="width" secondItem="dz4-aJ-VFJ" secondAttribute="width" multiplier="0.826972" id="gwy-Ef-lMm"/>
+                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="sHU-aW-Pq4" secondAttribute="trailing" constant="65" id="hVN-b8-tVm"/>
                             <constraint firstItem="Tr3-LE-WDd" firstAttribute="top" secondItem="e9y-vs-sTd" secondAttribute="bottom" constant="25" id="ia9-3m-JaF"/>
                             <constraint firstItem="e9y-vs-sTd" firstAttribute="centerX" secondItem="FAV-sr-DxO" secondAttribute="centerX" id="kls-ZR-Luy"/>
-                            <constraint firstItem="spY-vJ-PSj" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="75" id="rOx-Si-Zr8"/>
+                            <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="3RY-3u-o1Z" secondAttribute="trailing" constant="65" id="m0I-bj-lJ1"/>
+                            <constraint firstItem="spY-vJ-PSj" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="65" id="rOx-Si-Zr8"/>
                             <constraint firstItem="O6K-jX-TT6" firstAttribute="top" secondItem="tgF-1N-Xf3" secondAttribute="bottom" constant="37" id="t24-df-hqu"/>
                         </constraints>
                     </view>
@@ -337,6 +360,7 @@
                         <outlet property="memoTextView" destination="e9y-vs-sTd" id="0Vh-Mf-56H"/>
                         <outlet property="priorityButton" destination="3RY-3u-o1Z" id="n5h-Oh-621"/>
                         <outlet property="progressSlider" destination="HQv-9t-CNu" id="z1E-GA-sjV"/>
+                        <outlet property="progressValueLabel" destination="3nr-gr-s3C" id="O58-ME-eK0"/>
                         <outlet property="targetDatePicker" destination="SzX-fS-sbv" id="ipX-Ye-L8W"/>
                     </connections>
                 </viewController>
@@ -465,12 +489,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMM-KG-66R">
-                                            <rect key="frame" x="20.000000000000004" y="18" width="51.333333333333343" height="22"/>
+                                            <rect key="frame" x="20" y="18" width="49" height="22"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
                                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <font key="NSFont" size="20" name="NotoSansKR-Regular"/>
+                                                        <font key="NSFont" size="18" name="NotoSansKR-Bold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>

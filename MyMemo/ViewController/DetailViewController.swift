@@ -20,12 +20,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var priorityButton: UIButton!
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var progressSlider: UISlider!
+    @IBOutlet weak var progressValueLabel: UILabel!
     @IBOutlet weak var memoManagement: UIBarButtonItem!
     
     @IBAction func progressSlider(_ sender: UISlider) {
         sender.value = roundf(sender.value)
         let progressValue = sender.value
         prepareMemo?.progress = Int(progressValue)
+        progressValueLabel.text = String(Int(progressValue))
     }
     
     @IBAction func save(_ sender: Any) {
@@ -110,9 +112,11 @@ class DetailViewController: UIViewController {
 //        categoryButton.titleLabel?.text = prepareMemo?.category
         
         progressSlider.value = Float(prepareMemo?.progress ?? 0)
+        progressValueLabel.text = String(Int(progressSlider.value))
+        progressValueLabel.textColor = .link
+        setProgressSlider()
         setPriorityButton()
         setCategoryButton()
-        progressSlider.value = Float(prepareMemo?.progress ?? 0)
     }
     
     
@@ -141,12 +145,9 @@ class DetailViewController: UIViewController {
         self.categoryButton.changesSelectionAsPrimaryAction = true
     }
     
-    // Slider thumb 사이즈 조절 필요(진행 중, 미완성)
-    //    func setProgressSlider() {
-    ////        progressSlider.setThumbImage(<#T##image: UIImage?##UIImage?#>, for: <#T##UIControl.State#>)
-    //        let thumbsize = CGSize(width: 10, height: 10)
-    //    }
-    
+    func setProgressSlider() {
+        progressSlider.setThumbImage(UIImage(named: "sliderThumb1"), for: .normal)
+    }
 }
 
 extension DetailViewController : UITextViewDelegate {

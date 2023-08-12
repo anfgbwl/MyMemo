@@ -21,8 +21,6 @@
 		3F7EF7412A822BB900A971DC /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7282A822BB900A971DC /* GmarketSansLight.otf */; };
 		3F7EF7422A822BB900A971DC /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7292A822BB900A971DC /* NotoSansKR-Regular.otf */; };
 		3F7EF7442A822BB900A971DC /* BlackHanSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF72B2A822BB900A971DC /* BlackHanSans-Regular.ttf */; };
-		3F7EF7A92A85132500A971DC /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7A82A85132500A971DC /* main.png */; };
-		3F7EF7AB2A8513AB00A971DC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7AA2A8513AB00A971DC /* icon.png */; };
 		3F7EF7AF2A85148300A971DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7AE2A85148300A971DC /* Assets.xcassets */; };
 		3FBF01AC2A78E7C400E3EB02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */; };
 		3FBF01AE2A78E7C400E3EB02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */; };
@@ -49,8 +47,6 @@
 		3F7EF7282A822BB900A971DC /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
 		3F7EF7292A822BB900A971DC /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 		3F7EF72B2A822BB900A971DC /* BlackHanSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BlackHanSans-Regular.ttf"; sourceTree = "<group>"; };
-		3F7EF7A82A85132500A971DC /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main.png; path = ../../../../Downloads/main.png; sourceTree = "<group>"; };
-		3F7EF7AA2A8513AB00A971DC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		3F7EF7AE2A85148300A971DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FBF01A82A78E7C400E3EB02 /* MyMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,8 +138,6 @@
 		3FBF01AA2A78E7C400E3EB02 /* MyMemo */ = {
 			isa = PBXGroup;
 			children = (
-				3F7EF7A82A85132500A971DC /* main.png */,
-				3F7EF7AA2A8513AB00A971DC /* icon.png */,
 				3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */,
 				3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */,
 				3F11D4DA2A85E482006DD56A /* View */,
@@ -225,10 +219,8 @@
 				3F7EF7312A822BB900A971DC /* NotoSansKR-Light.otf in Resources */,
 				3F7EF7382A822BB900A971DC /* NotoSansKR-Bold.otf in Resources */,
 				3F7EF7342A822BB900A971DC /* GmarketSansMedium.otf in Resources */,
-				3F7EF7AB2A8513AB00A971DC /* icon.png in Resources */,
 				3F7EF7362A822BB900A971DC /* BusanFont_Provisional.otf in Resources */,
 				3FBF01B32A78E7C400E3EB02 /* Main.storyboard in Resources */,
-				3F7EF7A92A85132500A971DC /* main.png in Resources */,
 				3F7EF7AF2A85148300A971DC /* Assets.xcassets in Resources */,
 				3F7EF73E2A822BB900A971DC /* NotoSansKR-Medium.otf in Resources */,
 			);
@@ -324,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -378,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
