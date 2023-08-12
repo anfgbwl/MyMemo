@@ -283,7 +283,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="HQv-9t-CNu">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="HQv-9t-CNu">
                                 <rect key="frame" x="203" y="433.66666666666669" width="127" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="123" id="Xa3-zV-MaB"/>
@@ -292,6 +292,19 @@
                                     <action selector="progressSlider:" destination="BEb-3q-iqm" eventType="valueChanged" id="yIA-UH-6pf"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nr-gr-s3C">
+                                <rect key="frame" x="120" y="435" width="10.333333333333343" height="27"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="0">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="NotoSansKR-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" systemColor="linkColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FAV-sr-DxO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -302,10 +315,12 @@
                             <constraint firstItem="sHU-aW-Pq4" firstAttribute="centerY" secondItem="O6K-jX-TT6" secondAttribute="centerY" id="EES-6F-C6c"/>
                             <constraint firstItem="Pr6-pe-dEa" firstAttribute="top" secondItem="Tr3-LE-WDd" secondAttribute="bottom" constant="50" id="EtW-1x-WHO"/>
                             <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="HQv-9t-CNu" secondAttribute="trailing" constant="65" id="FaF-hc-cqO"/>
+                            <constraint firstItem="3nr-gr-s3C" firstAttribute="centerY" secondItem="spY-vJ-PSj" secondAttribute="centerY" id="FdY-N3-6PT"/>
                             <constraint firstItem="tgF-1N-Xf3" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="65" id="GnJ-XS-CHf"/>
                             <constraint firstItem="SzX-fS-sbv" firstAttribute="leading" secondItem="Pr6-pe-dEa" secondAttribute="trailing" constant="75" id="H3Q-kH-er9"/>
                             <constraint firstItem="FAV-sr-DxO" firstAttribute="trailing" secondItem="SzX-fS-sbv" secondAttribute="trailing" constant="65" id="HTL-0G-g5G"/>
                             <constraint firstItem="e9y-vs-sTd" firstAttribute="top" secondItem="FAV-sr-DxO" secondAttribute="top" constant="20" id="HqQ-qn-ddF"/>
+                            <constraint firstItem="3nr-gr-s3C" firstAttribute="leading" secondItem="spY-vJ-PSj" secondAttribute="trailing" constant="-10" id="J6V-XO-mbV"/>
                             <constraint firstItem="O6K-jX-TT6" firstAttribute="leading" secondItem="FAV-sr-DxO" secondAttribute="leading" constant="65" id="KFV-HS-bFi"/>
                             <constraint firstItem="HQv-9t-CNu" firstAttribute="centerY" secondItem="spY-vJ-PSj" secondAttribute="centerY" id="NkR-1Q-o8g"/>
                             <constraint firstItem="3RY-3u-o1Z" firstAttribute="centerY" secondItem="tgF-1N-Xf3" secondAttribute="centerY" id="Twr-F3-NSm"/>
@@ -345,6 +360,7 @@
                         <outlet property="memoTextView" destination="e9y-vs-sTd" id="0Vh-Mf-56H"/>
                         <outlet property="priorityButton" destination="3RY-3u-o1Z" id="n5h-Oh-621"/>
                         <outlet property="progressSlider" destination="HQv-9t-CNu" id="z1E-GA-sjV"/>
+                        <outlet property="progressValueLabel" destination="3nr-gr-s3C" id="O58-ME-eK0"/>
                         <outlet property="targetDatePicker" destination="SzX-fS-sbv" id="ipX-Ye-L8W"/>
                     </connections>
                 </viewController>
