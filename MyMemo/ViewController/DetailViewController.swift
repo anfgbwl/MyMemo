@@ -45,6 +45,9 @@ class DetailViewController: UIViewController {
         let checkAlert = UIAlertController(title: "수정되었습니다.", message: "", preferredStyle: .alert)
         self.present(checkAlert, animated: false)
         dismiss(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func memoManagement(_ sender: Any) {

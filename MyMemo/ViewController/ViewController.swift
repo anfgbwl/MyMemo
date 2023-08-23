@@ -25,6 +25,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        URLManager.shared.getJsonData(completion: { result in
+            switch result {
+            case .success(let data):
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.imgView.image = image
+                    }
+                }
+            case .failure(let error):
+                print("Error: ", error)
+            }
+        })
+        
     }
      
     

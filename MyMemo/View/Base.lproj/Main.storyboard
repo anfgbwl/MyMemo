@@ -18,12 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main" translatesAutoresizingMaskIntoConstraints="NO" id="mv5-ba-LVg">
-                                <rect key="frame" x="39" y="103" width="315" height="423"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="70q-Gn-dg3">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWX-rL-Ers">
-                                <rect key="frame" x="136" y="563.33333333333337" width="121.33333333333331" height="37.333333333333371"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <rect key="frame" x="136" y="501.99999999999994" width="121.33333333333331" height="37.333333333333314"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -47,8 +47,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utf-fQ-6zj">
-                                <rect key="frame" x="136" y="630.66666666666663" width="121.33333333333331" height="37.333333333333371"/>
-                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <rect key="frame" x="136" y="569" width="121.33333333333331" height="37.333333333333371"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -71,18 +71,27 @@
                                     <segue destination="cnT-y3-aQq" kind="show" id="uDv-c3-Wcq"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mv5-ba-LVg">
+                                <rect key="frame" x="18" y="211" width="356" height="262"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Utf-fQ-6zj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3om-0p-bTE"/>
-                            <constraint firstItem="mv5-ba-LVg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FhD-x8-iGa"/>
-                            <constraint firstItem="YWX-rL-Ers" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IDp-vu-5Qn"/>
-                            <constraint firstItem="mv5-ba-LVg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="39" id="Qqe-kf-Feo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mv5-ba-LVg" secondAttribute="trailing" constant="39" id="alv-xS-aIi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Utf-fQ-6zj" secondAttribute="bottom" constant="150" id="kOP-ul-qdm"/>
-                            <constraint firstItem="Utf-fQ-6zj" firstAttribute="top" secondItem="YWX-rL-Ers" secondAttribute="bottom" constant="30" id="kUZ-Gy-Kl1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mv5-ba-LVg" secondAttribute="bottom" constant="292" id="p90-k8-Qba"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="70q-Gn-dg3" secondAttribute="bottom" constant="-34" id="8sN-Wb-JpQ"/>
+                            <constraint firstItem="70q-Gn-dg3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CEg-TY-uts"/>
+                            <constraint firstItem="70q-Gn-dg3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ld4-hC-iyf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YWX-rL-Ers" secondAttribute="trailing" constant="135.66666666666669" id="S9i-Tq-7wO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Utf-fQ-6zj" secondAttribute="bottom" constant="211.66666666666663" id="U6w-Ji-xDV"/>
+                            <constraint firstItem="YWX-rL-Ers" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="X4Y-89-bE0"/>
+                            <constraint firstItem="Utf-fQ-6zj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="136" id="dWM-JM-xdB"/>
+                            <constraint firstItem="mv5-ba-LVg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="jWM-zk-ODl"/>
+                            <constraint firstItem="Utf-fQ-6zj" firstAttribute="top" secondItem="YWX-rL-Ers" secondAttribute="bottom" constant="29.666666666666742" id="ltO-ST-3z3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mv5-ba-LVg" secondAttribute="trailing" constant="19" id="rLg-ZY-QAY"/>
+                            <constraint firstItem="mv5-ba-LVg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="108" id="uyj-Th-TTp"/>
+                            <constraint firstItem="YWX-rL-Ers" firstAttribute="top" secondItem="mv5-ba-LVg" secondAttribute="bottom" constant="28.999999999999943" id="veE-W6-xJE"/>
+                            <constraint firstItem="70q-Gn-dg3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-103" id="woD-Hg-IZZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Utf-fQ-6zj" secondAttribute="trailing" constant="135.66666666666669" id="yBm-NB-xSB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qXp-Mx-FTP"/>
@@ -343,7 +352,7 @@
                         <rightBarButtonItems>
                             <barButtonItem title="저장" id="FRm-0q-fxt">
                                 <connections>
-                                    <action selector="save:" destination="BEb-3q-iqm" id="wU3-iH-7sb"/>
+                                    <action selector="save:" destination="BEb-3q-iqm" id="vn0-RS-ZZ5"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="management" image="ellipsis.circle" catalog="system" id="Dr5-ae-L48">
@@ -567,8 +576,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg" width="580" height="800"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
-        <image name="main" width="1308" height="938"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
