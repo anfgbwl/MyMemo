@@ -15,7 +15,7 @@ class MemoManager {
     
     // 메모 추가
     func addMemo(content: String, isCompleted: Bool, priority: String?, category: String?, progress: Int?) {
-        let newMemo = Memo(content: content, isCompleted: isCompleted, priority: priority ?? "없음", category: category ?? "일반", progress:progress ?? 0)
+        let newMemo = Memo(content: content, isCompleted: isCompleted, insertDate: Date(), priority: priority ?? "없음", category: category ?? "일반", progress:progress ?? 0)
         memoList.append(newMemo)
     }
 

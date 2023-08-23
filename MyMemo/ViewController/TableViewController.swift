@@ -102,7 +102,7 @@ class TableViewCell: UITableViewCell {
     @IBAction func memoSwitch(_ sender: UISwitch) {
         guard let tableView = superview as? UITableView,
               let indexPath = tableView.indexPath(for: self) else { return }
-        let memo = myMemo.memoList[indexPath.row]
+        var memo = myMemo.memoList[indexPath.row]
         memo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
         myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate, targetDate: memo.targetDate, priority: memo.priority, category: memo.category, progress: memo.progress)
