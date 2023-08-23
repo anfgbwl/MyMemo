@@ -9,7 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     // memoManager에 접근하는 변수 생성
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
     
     // prepare로 받아올 메모
     var prepareMemo: Memo?

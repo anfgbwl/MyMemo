@@ -16,7 +16,7 @@ class TableViewController: UITableViewController {
         return f
     }()
     // memoManager에 접근하는 변수 생성
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
         
     @IBAction func addList(_ sender: UIBarButtonItem) {
         print("버튼 클릭 : 추가")
@@ -93,7 +93,7 @@ class TableViewController: UITableViewController {
 
 class TableViewCell: UITableViewCell {
     // memoManager에 접근하는 변수 생성
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
     
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -102,7 +102,7 @@ class TableViewCell: UITableViewCell {
     @IBAction func memoSwitch(_ sender: UISwitch) {
         guard let tableView = superview as? UITableView,
               let indexPath = tableView.indexPath(for: self) else { return }
-        let memo = myMemo.memoList[indexPath.row]
+        var memo = myMemo.memoList[indexPath.row]
         memo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
         myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate, targetDate: memo.targetDate, priority: memo.priority, category: memo.category, progress: memo.progress)

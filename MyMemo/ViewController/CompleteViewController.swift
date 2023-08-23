@@ -8,7 +8,7 @@
 import UIKit
 
 class CompleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
     var completedMemos: [Memo] = []
     
     @IBOutlet weak var editButton: UIBarButtonItem!
@@ -31,11 +31,11 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = sender.superview?.superview as? CompleteViewCell, // 스위치 상위 뷰 찾기
           let indexPath = completeTableView.indexPath(for: cell) else { return }
     
-        let memo = myMemo.memoList[indexPath.row]
-        memo.isCompleted = sender.isOn
-        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate, targetDate: memo.targetDate, priority: memo.priority, category: memo.category, progress: memo.progress)
+        var completedMemo = myMemo.memoList[indexPath.row]
+        completedMemo.isCompleted = sender.isOn
+        myMemo.updateMemo(at: indexPath.row, newContent: completedMemo.content, isCompleted: completedMemo.isCompleted, insertDate: completedMemo.insertDate, targetDate: completedMemo.targetDate, priority: completedMemo.priority, category: completedMemo.category, progress: completedMemo.progress)
         
-        if memo.isCompleted {
+        if completedMemo.isCompleted {
             // completedMemos 배열에서 제거하고 셀을 삭제
             completedMemos.remove(at: indexPath.row)
             completeTableView.deleteRows(at: [indexPath], with: .fade)
@@ -87,7 +87,7 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
 }
 
 class CompleteViewCell : UITableViewCell {
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
     
     @IBOutlet weak var completeMemoLabel: UILabel!
     @IBOutlet weak var completeMemoSwitch: UISwitch!
