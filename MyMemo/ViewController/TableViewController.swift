@@ -16,7 +16,7 @@ class TableViewController: UITableViewController {
         return f
     }()
     // memoManager에 접근하는 변수 생성
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
         
     @IBAction func addList(_ sender: UIBarButtonItem) {
         print("버튼 클릭 : 추가")
@@ -93,7 +93,7 @@ class TableViewController: UITableViewController {
 
 class TableViewCell: UITableViewCell {
     // memoManager에 접근하는 변수 생성
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
     
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Memo {
+struct Memo: Codable {
     var content: String     // 메모 타이틀
     var isCompleted: Bool   // 완료여부
     var insertDate: Date   // 작성일

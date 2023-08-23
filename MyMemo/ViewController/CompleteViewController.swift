@@ -8,7 +8,7 @@
 import UIKit
 
 class CompleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
     var completedMemos: [Memo] = []
     
     @IBOutlet weak var editButton: UIBarButtonItem!
@@ -87,7 +87,7 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
 }
 
 class CompleteViewCell : UITableViewCell {
-    var myMemo = MemoManager.myMemo
+    var myMemo = MemoManager.shared
     
     @IBOutlet weak var completeMemoLabel: UILabel!
     @IBOutlet weak var completeMemoSwitch: UISwitch!
