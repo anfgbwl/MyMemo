@@ -65,7 +65,6 @@ class MemoManager {
         let reversedIndexes = indexesToRemove.sorted(by: >)
         for index in reversedIndexes {
             deleteMemo(at: index)
-            saveMemoListToUserDefaults() // 굳이 할 필요 없는 듯.. 어차피 다 삭제할거니까..
         }
     }
     
