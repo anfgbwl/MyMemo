@@ -15,8 +15,8 @@ class TableViewController: UITableViewController {
         f.locale = Locale(identifier: "Ko_kr")
         return f
     }()
-    // memoManager에 접근하는 변수 생성
-    var myMemo = MemoManager.shared
+    
+    let categories = Array(Set(MemoManager.shared.memoList.map { $0.category })).sorted()
         
     @IBAction func addList(_ sender: UIBarButtonItem) {
         print("버튼 클릭 : 추가")
@@ -29,7 +29,7 @@ class TableViewController: UITableViewController {
         
         let ok = UIAlertAction(title: "확인", style: .default) { (_) in
             if let memoTitle = alert.textFields?[0].text {
-                self.myMemo.addMemo(content: memoTitle, isCompleted: true, priority: "", category: "", progress: 0)
+                MemoManager.shared.addMemo(content: memoTitle, isCompleted: true, priority: "없음", category: "일반", progress: 0)
                 self.tableView.reloadData()
             }
         }
@@ -46,21 +46,37 @@ class TableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.reloadData()
     }
 
+    // 섹션 헤더 높이
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20.0
+    }
     
+    // 섹션의 갯수
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return categories.count
+    }
+    
+    // 섹션 내 셀의 갯수
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myMemo.memoList.count
+        // 카테고리 배열의 값과 memoList의 카테고리 값이 매칭되면 해당 memoList의 카운트를 반환
+        let category = categories[section]
+        return MemoManager.shared.memoList.filter { $0.category == category }.count
     }
 
+    // 셀의 내용
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let target = myMemo.memoList[indexPath.row]
+        let category = categories[indexPath.section]
+        let memoListInSection = MemoManager.shared.memoList.filter { $0.category == category }
+        let target = memoListInSection[indexPath.row]
         cell.memoLabel?.text = target.content
         cell.memoSwitch.isOn = target.isCompleted
         cell.dateLabel?.text = formatter.string(from: target.insertDate)
@@ -68,10 +84,14 @@ class TableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories[section]
+    }
+        
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let indexToDelete = indexPath.row
-            myMemo.deleteMemo(at: indexToDelete)
+            MemoManager.shared.deleteMemo(at: indexToDelete)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -81,7 +101,9 @@ class TableViewController: UITableViewController {
             if let destination = segue.destination as? DetailViewController {
                 if let selectedIndexPath = tableView.indexPathForSelectedRow {
                     let selectedMemoIndex = selectedIndexPath.row
-                    let prepareMemo = myMemo.memoList[selectedMemoIndex]
+                    let section = selectedIndexPath.section
+                    let category = categories[section]
+                    let prepareMemo = MemoManager.shared.memoList.filter { $0.category == category }[selectedMemoIndex]
                     destination.prepareMemoIndex = selectedMemoIndex
                     destination.prepareMemo = prepareMemo
                 }
@@ -92,8 +114,6 @@ class TableViewController: UITableViewController {
 }
 
 class TableViewCell: UITableViewCell {
-    // memoManager에 접근하는 변수 생성
-    var myMemo = MemoManager.shared
     
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -102,13 +122,13 @@ class TableViewCell: UITableViewCell {
     @IBAction func memoSwitch(_ sender: UISwitch) {
         guard let tableView = superview as? UITableView,
               let indexPath = tableView.indexPath(for: self) else { return }
-        var memo = myMemo.memoList[indexPath.row]
+        var memo = MemoManager.shared.memoList[indexPath.row]
         memo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
-        myMemo.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate, targetDate: memo.targetDate, priority: memo.priority, category: memo.category, progress: memo.progress)
+        MemoManager.shared.updateMemo(at: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate, targetDate: memo.targetDate, priority: memo.priority, category: memo.category, progress: memo.progress)
         
         // 로그 출력 (Memo 객체의 내용 출력)
-        for memo in myMemo.memoList { print(memo) }
+        for memo in MemoManager.shared.memoList { print(memo) }
     }
     
     func updateLabelStrikeThrough() {

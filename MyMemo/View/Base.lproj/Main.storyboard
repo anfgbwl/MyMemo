@@ -229,7 +229,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Button"/>
                                     </attributedString>
-                                    <color key="baseForegroundColor" systemColor="linkColor"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                     <color key="baseBackgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
@@ -271,7 +271,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="Button"/>
                                     </attributedString>
-                                    <color key="baseForegroundColor" systemColor="linkColor"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                     <color key="baseBackgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
@@ -351,11 +351,13 @@
                     <navigationItem key="navigationItem" id="7wD-TE-kQY">
                         <rightBarButtonItems>
                             <barButtonItem title="저장" id="FRm-0q-fxt">
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="save:" destination="BEb-3q-iqm" id="vn0-RS-ZZ5"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="management" image="ellipsis.circle" catalog="system" id="Dr5-ae-L48">
+                                <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <action selector="memoManagement:" destination="BEb-3q-iqm" id="h0Z-t4-CZV"/>
                                 </connections>
@@ -484,13 +486,13 @@
         <scene sceneID="hxp-II-ip5">
             <objects>
                 <tableViewController id="y16-oC-JDf" customClass="TableViewController" customModule="MyMemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Y2q-Bg-bNL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Y2q-Bg-bNL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="RFr-82-ElI" customClass="TableViewCell" customModule="MyMemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="80"/>
+                                <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RFr-82-ElI" id="r9I-yn-jSD">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
@@ -529,7 +531,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="49" id="Qd9-Iw-va8"/>
                                             </constraints>
-                                            <color key="onTintColor" systemColor="linkColor"/>
+                                            <color key="onTintColor" systemColor="labelColor"/>
                                             <connections>
                                                 <action selector="memoSwitch:" destination="RFr-82-ElI" eventType="valueChanged" id="kaU-Nt-vmm"/>
                                             </connections>
@@ -563,6 +565,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="할 일 확인하기" id="P5d-gG-wsJ">
                         <barButtonItem key="rightBarButtonItem" title="추가" style="plain" id="8Hp-EA-8Eq">
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="addList:" destination="y16-oC-JDf" id="SLB-1L-kkX"/>
                             </connections>
