@@ -16,7 +16,7 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         let editAlert = UIAlertController(title: "", message: "모든 메모가 삭제됩니다.", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let delete = UIAlertAction(title: "모든 메모 삭제", style: .default) { [self] (_) in
-            self.myMemo.deleteAllCompletedMemos()
+            MemoManager.shared.deleteAllCompletedMemos()
             self.navigationController?.popViewController(animated: true)
         }
         delete.setValue(UIColor.red, forKey: "titleTextColor")
@@ -31,9 +31,9 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = sender.superview?.superview as? CompleteViewCell, // 스위치 상위 뷰 찾기
           let indexPath = completeTableView.indexPath(for: cell) else { return }
     
-        var completedMemo = myMemo.memoList[indexPath.row]
+        var completedMemo = completedMemos[indexPath.row]
         completedMemo.isCompleted = sender.isOn
-        myMemo.updateMemo(at: indexPath.row, newContent: completedMemo.content, isCompleted: completedMemo.isCompleted, insertDate: completedMemo.insertDate, targetDate: completedMemo.targetDate, priority: completedMemo.priority, category: completedMemo.category, progress: completedMemo.progress)
+        MemoManager.shared.updateMemo(at: indexPath.row, newContent: completedMemo.content, isCompleted: completedMemo.isCompleted, insertDate: completedMemo.insertDate, targetDate: completedMemo.targetDate, priority: completedMemo.priority, category: completedMemo.category, progress: completedMemo.progress)
         
         if completedMemo.isCompleted {
             // completedMemos 배열에서 제거하고 셀을 삭제
@@ -45,7 +45,7 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        completedMemos = myMemo.memoList.filter { $0.isCompleted == false }
+        completedMemos = MemoManager.shared.memoList.filter { $0.isCompleted == false }
         print("\(completedMemos)")
     }
     

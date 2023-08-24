@@ -26,11 +26,12 @@ class MemoManager {
     func addMemo(content: String, isCompleted: Bool, priority: String?, category: String?, progress: Int?) {
         let newMemo = Memo(content: content, isCompleted: isCompleted, insertDate: Date(), priority: priority ?? "없음", category: category ?? "일반", progress:progress ?? 0)
         memoList.append(newMemo)
+        print(memoList)
         saveMemoListToUserDefaults()
     }
 
     // 메모 수정
-    func updateMemo(at index: Int, newContent: String, isCompleted: Bool, insertDate: Date, targetDate: Date?, priority: String?, category: String?, progress: Int?) {
+    func updateMemo(at index: Int, newContent: String, isCompleted: Bool, insertDate: Date, targetDate: Date?, priority: String?, category: String, progress: Int?) {
         guard index >= 0 && index < memoList.count else {
             return
         }
@@ -65,6 +66,7 @@ class MemoManager {
         let reversedIndexes = indexesToRemove.sorted(by: >)
         for index in reversedIndexes {
             deleteMemo(at: index)
+//            saveMemoListToUserDefaults() // 굳이 할 필요 없는 듯.. 어차피 다 삭제할거니까..
         }
     }
     
