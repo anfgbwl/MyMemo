@@ -8,34 +8,36 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    // prepare로 받아올 메모
-    var prepareMemo: Memo?
-    var prepareMemoIndex: Int?
+    // prepare로 받아올 todo
+    var prepareTodoIndex: IndexPath?
+    var prepareTodo: Todo?
     
-    @IBOutlet weak var memoTextView: UITextView!
+    @IBOutlet weak var todoTextView: UITextView!
     @IBOutlet weak var targetDatePicker: UIDatePicker!
     @IBOutlet weak var priorityButton: UIButton!
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var progressValueLabel: UILabel!
-    @IBOutlet weak var memoManagement: UIBarButtonItem!
+    @IBOutlet weak var todoManagement: UIBarButtonItem!
     
     @IBAction func progressSlider(_ sender: UISlider) {
         sender.value = roundf(sender.value)
         let progressValue = sender.value
-        prepareMemo?.progress = Int(progressValue)
+        prepareTodo?.progress = Int(progressValue)
         progressValueLabel.text = String(Int(progressValue))
     }
     
     @IBAction func save(_ sender: Any) {
-        let content = memoTextView.text ?? ""
+        let content = todoTextView.text ?? "비어있음"
         let isCompleted = true
         let targetDate = targetDatePicker.date
         let priority = priorityButton.titleLabel?.text ?? "없음"
         let category = categoryButton.titleLabel?.text ?? "일반"
         let progress = Int(progressSlider.value)
-        if let prepareMemoIndex = prepareMemoIndex {
-            MemoManager.shared.updateMemo(at: prepareMemoIndex, newContent: content, isCompleted: isCompleted, insertDate: Date(), targetDate: targetDate, priority: priority, category: category, progress: progress)
+        if let prepareTodoIndex = prepareTodoIndex {
+            let section = prepareTodoIndex.section
+            let row = prepareTodoIndex.row
+            TodoManager.shared.updateTodo(inSection: section, atRow: row, newContent: content, isCompleted: isCompleted, insertDate: Date(), targetDate: targetDate, priority: priority, category: category, progress: progress)
         }
         
         // 수정 완료 알람
@@ -47,40 +49,45 @@ class DetailViewController: UIViewController {
         }
     }
     
-    @IBAction func memoManagement(_ sender: Any) {
-        let memoManagementAlert = UIAlertController(title: "", message: "해당 메모를 삭제합니다.", preferredStyle: .actionSheet)
+    @IBAction func todoManagement(_ sender: Any) {
+        let todoManagementAlert = UIAlertController(title: "", message: "해당 항목을 삭제합니다.", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
-        let delete = UIAlertAction(title: "메모 삭제", style: .default) { [self] (_) in
-            MemoManager.shared.deleteMemo(at: prepareMemoIndex!)
+        let delete = UIAlertAction(title: "삭제", style: .default) { [self] (_) in
+            guard let prepareTodoIndex = self.prepareTodoIndex else {
+                return
+            }
+            let section = prepareTodoIndex.section
+            let row = prepareTodoIndex.row
+            TodoManager.shared.deleteTodo(inSection: section, atRow: row)
             self.navigationController?.popViewController(animated: true)
         }
         delete.setValue(UIColor.red, forKey: "titleTextColor")
-        memoManagementAlert.addAction(cancel)
-        memoManagementAlert.addAction(delete)
-        self.present(memoManagementAlert, animated: true)
+        todoManagementAlert.addAction(cancel)
+        todoManagementAlert.addAction(delete)
+        self.present(todoManagementAlert, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if prepareMemo?.priority == "", prepareMemo?.category == "" {
+        if prepareTodo?.priority == "", prepareTodo?.category == "" {
             priorityButton.setTitle("없음", for: .normal)
             categoryButton.setTitle("일반", for: .normal)
         } else {
-            priorityButton.setTitle(prepareMemo?.priority, for: .normal)
-            priorityButton.titleLabel?.text = prepareMemo?.priority
-            categoryButton.setTitle(prepareMemo?.category, for: .normal)
-            categoryButton.titleLabel?.text = prepareMemo?.category
+            priorityButton.setTitle(prepareTodo?.priority, for: .normal)
+            priorityButton.titleLabel?.text = prepareTodo?.priority
+            categoryButton.setTitle(prepareTodo?.category, for: .normal)
+            categoryButton.titleLabel?.text = prepareTodo?.category
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        memoTextView.delegate = self
-        memoTextView.isScrollEnabled = false
-        memoTextView.text = prepareMemo?.content
-        targetDatePicker.date = prepareMemo?.targetDate ?? Date()
-        progressSlider.value = Float(prepareMemo?.progress ?? 0)
+        todoTextView.delegate = self
+        todoTextView.isScrollEnabled = false
+        todoTextView.text = prepareTodo?.content
+        targetDatePicker.date = prepareTodo?.targetDate ?? Date()
+        progressSlider.value = Float(prepareTodo?.progress ?? 0)
         progressValueLabel.text = String(Int(progressSlider.value))
         progressValueLabel.textColor = .link
         setProgressSlider()

@@ -8,15 +8,14 @@
 import UIKit
 
 class CompleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var myMemo = MemoManager.shared
-    var completedMemos: [Memo] = []
+    var completedTodos: [Todo] = []
     
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBAction func editButton(_ sender: UIBarButtonItem) {
-        let editAlert = UIAlertController(title: "", message: "모든 메모가 삭제됩니다.", preferredStyle: .actionSheet)
+        let editAlert = UIAlertController(title: "", message: "모든 항목이 삭제됩니다.", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
-        let delete = UIAlertAction(title: "모든 메모 삭제", style: .default) { [self] (_) in
-            MemoManager.shared.deleteAllCompletedMemos()
+        let delete = UIAlertAction(title: "모든 항목 삭제", style: .default) { [self] (_) in
+            TodoManager.shared.deleteAllCompletedTodos()
             self.navigationController?.popViewController(animated: true)
         }
         delete.setValue(UIColor.red, forKey: "titleTextColor")
@@ -31,13 +30,13 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = sender.superview?.superview as? CompleteViewCell, // 스위치 상위 뷰 찾기
           let indexPath = completeTableView.indexPath(for: cell) else { return }
     
-        var completedMemo = completedMemos[indexPath.row]
-        completedMemo.isCompleted = sender.isOn
-        MemoManager.shared.updateMemo(at: indexPath.row, newContent: completedMemo.content, isCompleted: completedMemo.isCompleted, insertDate: completedMemo.insertDate, targetDate: completedMemo.targetDate, priority: completedMemo.priority, category: completedMemo.category, progress: completedMemo.progress)
+        var completedTodo = completedTodos[indexPath.row]
+        completedTodo.isCompleted = sender.isOn
+        TodoManager.shared.updateTodo(inSection: indexPath.section, atRow: indexPath.row, newContent: completedTodo.content, isCompleted: completedTodo.isCompleted, insertDate: completedTodo.insertDate, targetDate: completedTodo.targetDate, priority: completedTodo.priority, category: completedTodo.category, progress: completedTodo.progress)
         
-        if completedMemo.isCompleted {
+        if completedTodo.isCompleted {
             // completedMemos 배열에서 제거하고 셀을 삭제
-            completedMemos.remove(at: indexPath.row)
+            completedTodos.remove(at: indexPath.row)
             completeTableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -45,8 +44,8 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        completedMemos = MemoManager.shared.memoList.filter { $0.isCompleted == false }
-        print("\(completedMemos)")
+        completedTodos = TodoManager.shared.todoList.filter { $0.isCompleted == false }
+        print("\(completedTodos)")
     }
     
     
@@ -60,24 +59,25 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return completedMemos.count
+        return completedTodos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompleteViewCell", for: indexPath) as! CompleteViewCell
-        let targetMemo = completedMemos[indexPath.row]
-        cell.completeMemoLabel?.text = targetMemo.content
-        cell.completeMemoSwitch.isOn = targetMemo.isCompleted
+        let targetTodo = completedTodos[indexPath.row]
+        cell.completeMemoLabel?.text = targetTodo.content
+        cell.completeMemoSwitch.isOn = targetTodo.isCompleted
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let indexToDelete = indexPath.row
-            myMemo.deleteMemo(at: indexToDelete)
+            let section = indexPath.section
+            TodoManager.shared.deleteTodo(inSection: section, atRow: indexToDelete)
             
             // 데이터 소스와 일치하도록 completedMemos 업데이트
-            completedMemos = myMemo.memoList.filter { $0.isCompleted == false }
+            completedTodos = TodoManager.shared.todoList.filter { $0.isCompleted == false }
             // 애니메이션 블록을 만들어 주는 메소드(beginUpdates/endUpdates)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -87,7 +87,6 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
 }
 
 class CompleteViewCell : UITableViewCell {
-    var myMemo = MemoManager.shared
     
     @IBOutlet weak var completeMemoLabel: UILabel!
     @IBOutlet weak var completeMemoSwitch: UISwitch!
