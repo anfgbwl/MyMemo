@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct Memo: Codable {
+let categories = ["일반", "반려동물", "집", "과제", "운동"]
+
+struct Todo: Codable {
     var content: String     // 메모 타이틀
     var isCompleted: Bool   // 완료여부
     var insertDate: Date    // 작성일
@@ -18,8 +20,8 @@ struct Memo: Codable {
 }
 
 // 객체 비교를 위해 Equatable 프로토콜 채택
-extension Memo: Equatable {
-    static func ==(lhs: Memo, rhs: Memo) -> Bool {
+extension Todo: Equatable {
+    static func ==(lhs: Todo, rhs: Todo) -> Bool {
         return lhs.content == rhs.content
     }
 }

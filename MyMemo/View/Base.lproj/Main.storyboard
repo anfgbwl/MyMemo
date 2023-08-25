@@ -385,19 +385,19 @@
                             <barButtonItem title="management" image="ellipsis.circle" catalog="system" id="Dr5-ae-L48">
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
-                                    <action selector="memoManagement:" destination="BEb-3q-iqm" id="h0Z-t4-CZV"/>
+                                    <action selector="todoManagement:" destination="BEb-3q-iqm" id="L4j-fJ-Dm8"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryButton" destination="sHU-aW-Pq4" id="saB-d9-h6h"/>
-                        <outlet property="memoManagement" destination="Dr5-ae-L48" id="vTD-2w-bHt"/>
-                        <outlet property="memoTextView" destination="e9y-vs-sTd" id="0Vh-Mf-56H"/>
                         <outlet property="priorityButton" destination="3RY-3u-o1Z" id="n5h-Oh-621"/>
                         <outlet property="progressSlider" destination="HQv-9t-CNu" id="z1E-GA-sjV"/>
                         <outlet property="progressValueLabel" destination="3nr-gr-s3C" id="O58-ME-eK0"/>
                         <outlet property="targetDatePicker" destination="SzX-fS-sbv" id="ipX-Ye-L8W"/>
+                        <outlet property="todoManagement" destination="Dr5-ae-L48" id="g5E-gB-meR"/>
+                        <outlet property="todoTextView" destination="e9y-vs-sTd" id="Ux0-ga-TY5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2J-uo-ff9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -639,7 +639,7 @@
                                             </constraints>
                                             <color key="onTintColor" systemColor="labelColor"/>
                                             <connections>
-                                                <action selector="memoSwitch:" destination="RFr-82-ElI" eventType="valueChanged" id="kaU-Nt-vmm"/>
+                                                <action selector="todoSwitch:" destination="RFr-82-ElI" eventType="valueChanged" id="DWD-KF-XfB"/>
                                             </connections>
                                         </switch>
                                     </subviews>
@@ -658,8 +658,8 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dateLabel" destination="3Iu-h7-I8u" id="ugE-UW-ck8"/>
-                                    <outlet property="memoLabel" destination="bMM-KG-66R" id="i0I-wA-sW2"/>
-                                    <outlet property="memoSwitch" destination="0ob-zA-8fQ" id="4NS-UA-svY"/>
+                                    <outlet property="todoLabel" destination="bMM-KG-66R" id="ofW-d9-plD"/>
+                                    <outlet property="todoSwitch" destination="0ob-zA-8fQ" id="IG6-aB-uJ4"/>
                                     <segue destination="BEb-3q-iqm" kind="show" identifier="detailViewSegue" id="3hM-2L-xL0"/>
                                 </connections>
                             </tableViewCell>

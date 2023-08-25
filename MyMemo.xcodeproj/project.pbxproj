@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F7EF70E2A7CCAED00A971DC /* MemoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7EF70D2A7CCAED00A971DC /* MemoManager.swift */; };
+		3F7EF70E2A7CCAED00A971DC /* TodoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7EF70D2A7CCAED00A971DC /* TodoManager.swift */; };
 		3F7EF7122A81F4D100A971DC /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7EF7112A81F4D100A971DC /* CompleteViewController.swift */; };
 		3F7EF72D2A822BB900A971DC /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7142A822BB900A971DC /* GmarketSansBold.otf */; };
 		3F7EF7312A822BB900A971DC /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3F7EF7182A822BB900A971DC /* NotoSansKR-Light.otf */; };
@@ -33,12 +33,12 @@
 		3FBF01B32A78E7C400E3EB02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01B12A78E7C400E3EB02 /* Main.storyboard */; };
 		3FBF01B82A78E7C600E3EB02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBF01B62A78E7C600E3EB02 /* LaunchScreen.storyboard */; };
 		3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EC2A7A31D800FEB453 /* TableViewController.swift */; };
-		3FE583EF2A7A494100FEB453 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EE2A7A494100FEB453 /* Memo.swift */; };
+		3FE583EF2A7A494100FEB453 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583EE2A7A494100FEB453 /* Todo.swift */; };
 		3FE583F12A7A673200FEB453 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE583F02A7A673200FEB453 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F7EF70D2A7CCAED00A971DC /* MemoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoManager.swift; sourceTree = "<group>"; };
+		3F7EF70D2A7CCAED00A971DC /* TodoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoManager.swift; sourceTree = "<group>"; };
 		3F7EF7112A81F4D100A971DC /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		3F7EF7142A822BB900A971DC /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
 		3F7EF7182A822BB900A971DC /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		3FBF01B72A78E7C600E3EB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FBF01B92A78E7C600E3EB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE583EC2A7A31D800FEB453 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		3FE583EE2A7A494100FEB453 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		3FE583EE2A7A494100FEB453 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		3FE583F02A7A673200FEB453 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,8 +97,8 @@
 		3F11D4D92A85E39F006DD56A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3FE583EE2A7A494100FEB453 /* Memo.swift */,
-				3F7EF70D2A7CCAED00A971DC /* MemoManager.swift */,
+				3FE583EE2A7A494100FEB453 /* Todo.swift */,
+				3F7EF70D2A7CCAED00A971DC /* TodoManager.swift */,
 				3F8E1EEA2A9833D300C2C563 /* RandomImage.swift */,
 				3F8E1EE62A95F22100C2C563 /* URLManager.swift */,
 			);
@@ -267,11 +267,11 @@
 				3FBF01AE2A78E7C400E3EB02 /* SceneDelegate.swift in Sources */,
 				3F8E1EE92A982F3200C2C563 /* PetViewController.swift in Sources */,
 				3FE583F12A7A673200FEB453 /* DetailViewController.swift in Sources */,
-				3FE583EF2A7A494100FEB453 /* Memo.swift in Sources */,
+				3FE583EF2A7A494100FEB453 /* Todo.swift in Sources */,
 				3F8E1EEB2A9833D300C2C563 /* RandomImage.swift in Sources */,
 				3F7EF7122A81F4D100A971DC /* CompleteViewController.swift in Sources */,
 				3F8E1EFD2A9896F300C2C563 /* TableViewCell.swift in Sources */,
-				3F7EF70E2A7CCAED00A971DC /* MemoManager.swift in Sources */,
+				3F7EF70E2A7CCAED00A971DC /* TodoManager.swift in Sources */,
 				3FE583ED2A7A31D800FEB453 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

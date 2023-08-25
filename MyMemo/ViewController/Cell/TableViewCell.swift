@@ -9,29 +9,26 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
-    @IBOutlet weak var memoLabel: UILabel!
+    @IBOutlet weak var todoLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var memoSwitch: UISwitch!
+    @IBOutlet weak var todoSwitch: UISwitch!
         
-    @IBAction func memoSwitch(_ sender: UISwitch) {
+    @IBAction func todoSwitch(_ sender: UISwitch) {
         guard let tableView = superview as? UITableView,
               let indexPath = tableView.indexPath(for: self) else { return }
-        var memo = MemoManager.shared.memoList[indexPath.row]
-        memo.isCompleted = sender.isOn
+        var todo = TodoManager.shared.todoList[indexPath.row]
+        todo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
-        MemoManager.shared.updateMemo(inSection: indexPath.section, atRow: indexPath.row, newContent: memo.content, isCompleted: memo.isCompleted, insertDate: memo.insertDate, targetDate: memo.targetDate, priority: memo.priority, category: memo.category, progress: memo.progress)
+        TodoManager.shared.updateTodo(inSection: indexPath.section, atRow: indexPath.row, newContent: todo.content, isCompleted: todo.isCompleted, insertDate: todo.insertDate, targetDate: todo.targetDate, priority: todo.priority, category: todo.category, progress: todo.progress)
         // 셀을 재로드
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        // 로그 출력 (Memo 객체의 내용 출력)
-        for memo in MemoManager.shared.memoList { print(memo) }
-        print("🤮🤮🤮🤮🤮🤮 확인용: ", memo.isCompleted)
     }
     
     func updateLabelStrikeThrough() {
-        if memoSwitch.isOn {
-            memoLabel.attributedText = memoLabel.text?.removestrikeThrough()
+        if todoSwitch.isOn {
+            todoLabel.attributedText = todoLabel.text?.removestrikeThrough()
         } else {
-            memoLabel.attributedText = memoLabel.text?.strikeThrough()
+            todoLabel.attributedText = todoLabel.text?.strikeThrough()
         }
     }
     
@@ -46,7 +43,7 @@ class TableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        memoLabel.attributedText = nil
+        todoLabel.attributedText = nil
     }
     
 }

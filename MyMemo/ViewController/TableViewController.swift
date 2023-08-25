@@ -15,8 +15,6 @@ class TableViewController: UITableViewController {
         f.locale = Locale(identifier: "Ko_kr")
         return f
     }()
-    
-    let categories = Array(Set(MemoManager.shared.memoList.map { $0.category })).sorted()
         
     @IBAction func addList(_ sender: UIBarButtonItem) {
         print("버튼 클릭 : 추가")
@@ -27,8 +25,8 @@ class TableViewController: UITableViewController {
         }
         
         let ok = UIAlertAction(title: "확인", style: .default) { (_) in
-            if let memoTitle = alert.textFields?[0].text {
-                MemoManager.shared.addMemo(content: memoTitle, isCompleted: true, priority: "없음", category: "일반", progress: 0)
+            if let todoTitle = alert.textFields?[0].text, todoTitle.count != 0 {
+                TodoManager.shared.addTodo(content: todoTitle, isCompleted: true, priority: "없음", category: "일반", progress: 0)
                 self.tableView.reloadData() // Alert에서 메모 추가하게 되면 바로 테이블뷰에 띄워주기
             }
         }
@@ -47,6 +45,110 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpTableViewHeaderFooter()
+        self.tableView.reloadData()
+    }
+
+    // 섹션 헤더 높이
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30.0
+    }
+
+    // 섹션 헤더 타이틀(카테고리)
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories[section]
+    }
+    
+    // 섹션 헤더 배경색
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
+        header?.textLabel?.textColor = .white
+        header?.contentView.backgroundColor = UIColor.tintColor
+        return header
+    }
+    
+    // 섹션 푸터 높이
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30.0
+    }
+    
+    // 섹션 푸터 라벨
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
+        footer?.textLabel?.text = "완료 n 건 / 미완료 n 건"
+        footer?.contentView.backgroundColor = UIColor.systemGray6
+        return footer
+    }
+    
+    // 섹션의 갯수
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return categories.count
+    }
+    
+    // 섹션 내 셀의 갯수
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // 카테고리 배열의 값과 memoList의 카테고리 값이 매칭되면 해당 memoList의 카운트를 반환
+        let category = categories[section]
+        return TodoManager.shared.todoList.filter { $0.category == category }.count
+    }
+
+    // 셀의 내용
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+        let category = categories[indexPath.section]
+        let todoListInSection = TodoManager.shared.todoList.filter { $0.category == category }
+        let target = todoListInSection[indexPath.row]
+        cell.todoLabel?.text = target.content
+        cell.todoSwitch.isOn = target.isCompleted
+        cell.dateLabel?.text = formatter.string(from: target.insertDate)
+        cell.updateLabelStrikeThrough()
+        return cell
+    }
+    
+        
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let indexToDelete = indexPath.row
+            let section = indexPath.section
+            TodoManager.shared.deleteTodo(inSection: section, atRow: indexToDelete)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailViewSegue" {
+            if let destination = segue.destination as? DetailViewController {
+                if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                    let section = selectedIndexPath.section // 카테고리
+                    let selectedTodoIndex = selectedIndexPath.row // 카테고리 내 todo
+                    let category = categories[section]
+                    let prepareTodo = TodoManager.shared.todoList.filter { $0.category == category }[selectedTodoIndex]
+                    destination.prepareTodoIndex = selectedIndexPath
+                    destination.prepareTodo = prepareTodo
+                }
+            }
+        }
+    }
+
+}
+
+
+
+extension String {
+    func strikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+    func removestrikeThrough() -> NSAttributedString {
+        let attributeString = NSMutableAttributedString(string: self)
+        attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+}
+
+extension TableViewController {
+    func setUpTableViewHeaderFooter() {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
         header.backgroundColor = .systemGray6
@@ -68,103 +170,5 @@ class TableViewController: UITableViewController {
         tableView.tableFooterView = footer
         
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "customHeader")
-        self.tableView.reloadData()
-    }
-
-    // 섹션 헤더 높이
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30.0
-    }
-
-    // 섹션 헤더 타이틀(카테고리)
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categories[section]
-    }
-    
-    // 섹션 헤더 배경색(지금은 반만 적용됨...;) -> 오토레이아웃 문제일 수 있음(차차 확인 해야지) -> 노노 푸터였음;;
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
-        header?.textLabel?.textColor = .white
-        header?.contentView.backgroundColor = UIColor.tintColor
-        return header
-    }
-    
-    // 섹션 푸터 높이
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 30.0
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
-        footer?.textLabel?.text = "완료 n 건 / 미완료 n 건"
-        footer?.contentView.backgroundColor = UIColor.systemGray6
-        return footer
-    }
-    
-    // 섹션의 갯수
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return categories.count
-    }
-    
-    // 섹션 내 셀의 갯수
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 카테고리 배열의 값과 memoList의 카테고리 값이 매칭되면 해당 memoList의 카운트를 반환
-        let category = categories[section]
-        return MemoManager.shared.memoList.filter { $0.category == category }.count
-    }
-
-    // 셀의 내용 -> 셀의 내용을 불러올 뿐 문제 없음..
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let category = categories[indexPath.section]
-        let memoListInSection = MemoManager.shared.memoList.filter { $0.category == category }
-        let target = memoListInSection[indexPath.row]
-        cell.memoLabel?.text = target.content
-        cell.memoSwitch.isOn = target.isCompleted
-        cell.dateLabel?.text = formatter.string(from: target.insertDate)
-        cell.updateLabelStrikeThrough()
-        return cell
-    }
-    
-        
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let indexToDelete = indexPath.row
-            let section = indexPath.section
-            MemoManager.shared.deleteMemo(inSection: section, atRow: indexToDelete)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailViewSegue" {
-            if let destination = segue.destination as? DetailViewController {
-                if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                    let prepareMemoIndex = selectedIndexPath // 수정된 부분
-                    let selectedMemoIndex = selectedIndexPath.row
-                    let section = selectedIndexPath.section
-                    let category = categories[section]
-                    let prepareMemo = MemoManager.shared.memoList.filter { $0.category == category }[selectedMemoIndex]
-                    destination.prepareMemoIndex = prepareMemoIndex
-                    destination.prepareMemo = prepareMemo
-                }
-            }
-        }
-    }
-
-}
-
-
-
-extension String {
-    func strikeThrough() -> NSAttributedString {
-        let attributeString = NSMutableAttributedString(string: self)
-        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
-        return attributeString
-    }
-    func removestrikeThrough() -> NSAttributedString {
-        let attributeString = NSMutableAttributedString(string: self)
-        attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
-        return attributeString
     }
 }
