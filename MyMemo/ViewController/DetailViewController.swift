@@ -10,7 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     // prepare로 받아올 메모
     var prepareMemo: Memo?
-    var prepareMemoIndex: Int?
+    var prepareMemoIndex: IndexPath?
     
     @IBOutlet weak var memoTextView: UITextView!
     @IBOutlet weak var targetDatePicker: UIDatePicker!
@@ -35,7 +35,9 @@ class DetailViewController: UIViewController {
         let category = categoryButton.titleLabel?.text ?? "일반"
         let progress = Int(progressSlider.value)
         if let prepareMemoIndex = prepareMemoIndex {
-            MemoManager.shared.updateMemo(at: prepareMemoIndex, newContent: content, isCompleted: isCompleted, insertDate: Date(), targetDate: targetDate, priority: priority, category: category, progress: progress)
+            let section = prepareMemoIndex.section
+            let row = prepareMemoIndex.row
+            MemoManager.shared.updateMemo(inSection: section, atRow: row, newContent: content, isCompleted: isCompleted, insertDate: Date(), targetDate: targetDate, priority: priority, category: category, progress: progress)
         }
         
         // 수정 완료 알람
@@ -51,7 +53,12 @@ class DetailViewController: UIViewController {
         let memoManagementAlert = UIAlertController(title: "", message: "해당 메모를 삭제합니다.", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let delete = UIAlertAction(title: "메모 삭제", style: .default) { [self] (_) in
-            MemoManager.shared.deleteMemo(at: prepareMemoIndex!)
+            guard let prepareMemoIndex = self.prepareMemoIndex else {
+                return
+            }
+            let section = prepareMemoIndex.section
+            let row = prepareMemoIndex.row
+            MemoManager.shared.deleteMemo(inSection: section, atRow: row)
             self.navigationController?.popViewController(animated: true)
         }
         delete.setValue(UIColor.red, forKey: "titleTextColor")

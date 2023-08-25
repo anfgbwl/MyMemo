@@ -8,7 +8,6 @@
 import UIKit
 
 class CompleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var myMemo = MemoManager.shared
     var completedMemos: [Memo] = []
     
     @IBOutlet weak var editButton: UIBarButtonItem!
@@ -33,7 +32,7 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     
         var completedMemo = completedMemos[indexPath.row]
         completedMemo.isCompleted = sender.isOn
-        MemoManager.shared.updateMemo(at: indexPath.row, newContent: completedMemo.content, isCompleted: completedMemo.isCompleted, insertDate: completedMemo.insertDate, targetDate: completedMemo.targetDate, priority: completedMemo.priority, category: completedMemo.category, progress: completedMemo.progress)
+        MemoManager.shared.updateMemo(inSection: indexPath.section, atRow: indexPath.row, newContent: completedMemo.content, isCompleted: completedMemo.isCompleted, insertDate: completedMemo.insertDate, targetDate: completedMemo.targetDate, priority: completedMemo.priority, category: completedMemo.category, progress: completedMemo.progress)
         
         if completedMemo.isCompleted {
             // completedMemos 배열에서 제거하고 셀을 삭제
@@ -74,10 +73,11 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let indexToDelete = indexPath.row
-            myMemo.deleteMemo(at: indexToDelete)
+            let section = indexPath.section
+            MemoManager.shared.deleteMemo(inSection: section, atRow: indexToDelete)
             
             // 데이터 소스와 일치하도록 completedMemos 업데이트
-            completedMemos = myMemo.memoList.filter { $0.isCompleted == false }
+            completedMemos = MemoManager.shared.memoList.filter { $0.isCompleted == false }
             // 애니메이션 블록을 만들어 주는 메소드(beginUpdates/endUpdates)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -87,7 +87,6 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
 }
 
 class CompleteViewCell : UITableViewCell {
-    var myMemo = MemoManager.shared
     
     @IBOutlet weak var completeMemoLabel: UILabel!
     @IBOutlet weak var completeMemoSwitch: UISwitch!

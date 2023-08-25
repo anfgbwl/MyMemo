@@ -16,3 +16,10 @@ struct Memo: Codable {
     var category: String    // 카테고리
     var progress: Int?      // 진행율
 }
+
+// 객체 비교를 위해 Equatable 프로토콜 채택
+extension Memo: Equatable {
+    static func ==(lhs: Memo, rhs: Memo) -> Bool {
+        return lhs.content == rhs.content
+    }
+}

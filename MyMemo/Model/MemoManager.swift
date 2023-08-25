@@ -13,6 +13,7 @@ class MemoManager {
     private var userDefaults = UserDefaults.standard // 접근 제어
     
     var memoList: [Memo] = []
+    let categories = Array(Set(MemoManager.shared.memoList.map { $0.category })).sorted()
     
     // (접근 제어) 초기화 : UserDefaults를 통해 메모 불러오기
     private init() {
@@ -31,31 +32,50 @@ class MemoManager {
     }
 
     // 메모 수정
-    func updateMemo(at index: Int, newContent: String, isCompleted: Bool, insertDate: Date, targetDate: Date?, priority: String?, category: String, progress: Int?) {
-        guard index >= 0 && index < memoList.count else {
+    func updateMemo(inSection section: Int, atRow row: Int, newContent: String, isCompleted: Bool, insertDate: Date, targetDate: Date?, priority: String?, category: String, progress: Int?) {
+        let sectionMemoList = memoList.filter { $0.category == categories[section] }
+        guard row >= 0 && row < sectionMemoList.count else {
             return
         }
-        memoList[index].content = newContent
-        memoList[index].isCompleted = isCompleted
-        memoList[index].insertDate = insertDate
-        memoList[index].targetDate = targetDate
-        memoList[index].priority = priority
-        memoList[index].category = category
-        memoList[index].progress = progress
-        saveMemoListToUserDefaults()
+        var memoToUpdate = sectionMemoList[row]
+        memoToUpdate.content = newContent
+        memoToUpdate.isCompleted = isCompleted
+        memoToUpdate.insertDate = insertDate
+        memoToUpdate.targetDate = targetDate
+        memoToUpdate.priority = priority
+        memoToUpdate.category = category
+        memoToUpdate.progress = progress
+        if let indexToUpdate = memoList.firstIndex(where: { $0.content == memoToUpdate.content }) {
+            memoList[indexToUpdate] = memoToUpdate
+            saveMemoListToUserDefaults()
+            print("🤮🤮🤮🤮🤮🤮 확인용: ", memoToUpdate.isCompleted)
+        }
     }
 
     // 메모 삭제
-    func deleteMemo(at index: Int) {
-        guard index >= 0 && index < memoList.count else {
+    func deleteMemo(inSection section: Int, atRow row: Int) {
+        guard section >= 0 && section < memoList.count else {
             return
         }
-        memoList.remove(at: index)
+        let category = categories[section]
+        print("🤮🤮🤮🤮🤮🤮", category)
+        var memoListInSection = memoList.filter { $0.category == category }
+        print("🤮🤮🤮🤮🤮🤮", memoListInSection)
+        guard row >= 0 && row < memoListInSection.count else {
+            return
+        }
+        let memo = memoListInSection.remove(at: row)
+        
+        // memoList에서 해당 memo를 찾아서 삭제
+//        if let index = memoList.firstIndex(where: { $0 === memo }) {
+//            memoList.remove(at: index)
+//        }
         saveMemoListToUserDefaults()
     }
     
     // 모든 메모 삭제
     func deleteAllCompletedMemos() {
+        // 완료된 메모의 배열
         var indexesToRemove: [Int] = []
         for (index, memo) in memoList.enumerated() {
             if !memo.isCompleted {
@@ -65,8 +85,7 @@ class MemoManager {
         // 인덱스를 역순으로 정렬한 후 삭제(정확한 삭제를 위해)
         let reversedIndexes = indexesToRemove.sorted(by: >)
         for index in reversedIndexes {
-            deleteMemo(at: index)
-//            saveMemoListToUserDefaults() // 굳이 할 필요 없는 듯.. 어차피 다 삭제할거니까..
+            memoList.remove(at: index)
         }
     }
     
