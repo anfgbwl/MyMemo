@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class PetViewController: UIViewController {
     var imageList: [RandomImage] = []
@@ -15,6 +16,16 @@ class PetViewController: UIViewController {
     @IBOutlet weak var catImageView: UIImageView!
     @IBAction func randomButton(_ sender: Any) {
         getRandomCatImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        randomImageView.showAnimatedGradientSkeleton()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.randomImageView.hideSkeleton()
+        }
     }
     
     override func viewDidLoad() {

@@ -4,7 +4,6 @@
     <accessibilityOverrides/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -198,7 +197,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr6-pe-dEa">
-                                <rect key="frame" x="65" y="250" width="65" height="25"/>
+                                <rect key="frame" x="65" y="249.99999999999997" width="65" height="24.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="KJt-Yb-bG1"/>
                                 </constraints>
@@ -222,7 +221,7 @@
                                 <locale key="locale" localeIdentifier="ko_KR"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgF-1N-Xf3">
-                                <rect key="frame" x="65" y="312" width="65" height="25"/>
+                                <rect key="frame" x="65" y="311.66666666666669" width="65" height="24.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="drA-Oz-Sfp"/>
                                 </constraints>
@@ -238,7 +237,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3RY-3u-o1Z">
-                                <rect key="frame" x="205" y="307" width="123" height="35"/>
+                                <rect key="frame" x="205" y="306.66666666666669" width="123" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="123" id="Gs0-1j-4UN"/>
                                     <constraint firstAttribute="height" constant="35" id="anf-Tq-129"/>
@@ -261,7 +260,7 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6K-jX-TT6">
-                                <rect key="frame" x="65" y="374" width="65" height="25"/>
+                                <rect key="frame" x="65" y="373.33333333333331" width="65" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Y0Z-Ix-c2b"/>
                                     <constraint firstAttribute="width" constant="65" id="asH-pR-8lT"/>
@@ -278,7 +277,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sHU-aW-Pq4">
-                                <rect key="frame" x="205" y="369" width="123" height="35"/>
+                                <rect key="frame" x="205" y="368.33333333333331" width="123" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="123" id="HoA-WB-WSc"/>
                                     <constraint firstAttribute="height" constant="35" id="Qww-Bl-Ek9"/>
@@ -303,7 +302,7 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spY-vJ-PSj">
-                                <rect key="frame" x="65" y="436" width="65" height="25"/>
+                                <rect key="frame" x="65" y="435.33333333333331" width="65" height="24.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="SyI-3N-sZt"/>
                                 </constraints>
@@ -319,7 +318,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="HQv-9t-CNu">
-                                <rect key="frame" x="203" y="433.66666666666669" width="127" height="31"/>
+                                <rect key="frame" x="203" y="432.66666666666669" width="127" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="123" id="Xa3-zV-MaB"/>
                                 </constraints>
@@ -328,7 +327,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nr-gr-s3C">
-                                <rect key="frame" x="120" y="435" width="10.333333333333343" height="27"/>
+                                <rect key="frame" x="120" y="434.66666666666669" width="10.333333333333343" height="26.333333333333314"/>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <attributedString key="attributedText">
                                     <fragment content="0">
@@ -500,9 +499,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="62Q-5H-ISG">
-                                <rect key="frame" x="76.666666666666686" y="215.33333333333337" width="240" height="247.66666666666663"/>
+                                <rect key="frame" x="76.666666666666686" y="219" width="240" height="240"/>
                                 <color key="tintColor" systemColor="opaqueSeparatorColor"/>
-                                <imageReference key="image" image="slowmo" catalog="system" symbolScale="large"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="098-lE-Q41">
                                 <rect key="frame" x="139" y="596" width="95" height="34"/>
@@ -687,7 +688,6 @@
         <image name="bg" width="580" height="800"/>
         <image name="cat" width="2787" height="2724"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
-        <image name="slowmo" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

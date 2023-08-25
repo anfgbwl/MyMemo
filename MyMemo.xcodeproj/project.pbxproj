@@ -25,6 +25,7 @@
 		3F8E1EE72A95F22100C2C563 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E1EE62A95F22100C2C563 /* URLManager.swift */; };
 		3F8E1EE92A982F3200C2C563 /* PetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E1EE82A982F3200C2C563 /* PetViewController.swift */; };
 		3F8E1EEB2A9833D300C2C563 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8E1EEA2A9833D300C2C563 /* RandomImage.swift */; };
+		3F8E1EFA2A98757F00C2C563 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 3F8E1EF92A98757F00C2C563 /* SkeletonView */; };
 		3FBF01AC2A78E7C400E3EB02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AB2A78E7C400E3EB02 /* AppDelegate.swift */; };
 		3FBF01AE2A78E7C400E3EB02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AD2A78E7C400E3EB02 /* SceneDelegate.swift */; };
 		3FBF01B02A78E7C400E3EB02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBF01AF2A78E7C400E3EB02 /* ViewController.swift */; };
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F8E1EFA2A98757F00C2C563 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +177,9 @@
 			dependencies = (
 			);
 			name = MyMemo;
+			packageProductDependencies = (
+				3F8E1EF92A98757F00C2C563 /* SkeletonView */,
+			);
 			productName = MyMemo;
 			productReference = 3FBF01A82A78E7C400E3EB02 /* MyMemo.app */;
 			productType = "com.apple.product-type.application";
@@ -203,6 +208,9 @@
 				Base,
 			);
 			mainGroup = 3FBF019F2A78E7C400E3EB02;
+			packageReferences = (
+				3F8E1EF82A98757F00C2C563 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+			);
 			productRefGroup = 3FBF01A92A78E7C400E3EB02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -470,6 +478,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F8E1EF82A98757F00C2C563 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F8E1EF92A98757F00C2C563 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F8E1EF82A98757F00C2C563 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3FBF01A02A78E7C400E3EB02 /* Project object */;
 }
