@@ -4,6 +4,7 @@
     <accessibilityOverrides/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -20,6 +21,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="70q-Gn-dg3">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mv5-ba-LVg">
+                                <rect key="frame" x="18" y="211" width="356" height="262"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWX-rL-Ers">
                                 <rect key="frame" x="136" y="501.99999999999994" width="121.33333333333331" height="37.333333333333314"/>
@@ -71,9 +75,32 @@
                                     <segue destination="cnT-y3-aQq" kind="show" id="uDv-c3-Wcq"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="mv5-ba-LVg">
-                                <rect key="frame" x="18" y="211" width="356" height="262"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daE-WW-Yic">
+                                <rect key="frame" x="70" y="420" width="44" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="😻">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="AppleColorEmoji"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="jjc-iG-bwC" kind="show" id="f0o-T1-n8v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -376,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2J-uo-ff9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4081.679389312977" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="4079" y="-713"/>
         </scene>
         <!--완료한 일 보기-->
         <scene sceneID="Ifg-pI-kuU">
@@ -462,7 +489,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpL-OV-Fo6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3038.9312977099235" y="727.46478873239437"/>
+            <point key="canvasLocation" x="3039" y="4"/>
+        </scene>
+        <!--냥😻-->
+        <scene sceneID="5CU-PT-cHo">
+            <objects>
+                <viewController id="jjc-iG-bwC" customClass="PetViewController" customModule="MyMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9WL-li-8E5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="62Q-5H-ISG">
+                                <rect key="frame" x="76.666666666666686" y="215.33333333333337" width="240" height="247.66666666666663"/>
+                                <color key="tintColor" systemColor="opaqueSeparatorColor"/>
+                                <imageReference key="image" image="slowmo" catalog="system" symbolScale="large"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="098-lE-Q41">
+                                <rect key="frame" x="139" y="596" width="95" height="34"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="꾹꾹이">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="🧡">
+                                            <attributes>
+                                                <font key="NSFont" size="12" name="AppleColorEmoji"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="firstButtonTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fcG-iC-X7f"/>
+                                    <action selector="randomButton:" destination="jjc-iG-bwC" eventType="touchUpInside" id="vPs-9p-Iql"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="0fs-0s-UXQ">
+                                <rect key="frame" x="0.0" y="617" width="240" height="240"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3UM-r0-tnB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="098-lE-Q41" firstAttribute="top" secondItem="3UM-r0-tnB" secondAttribute="top" constant="493" id="0Dx-0W-hG0"/>
+                            <constraint firstItem="3UM-r0-tnB" firstAttribute="trailing" secondItem="0fs-0s-UXQ" secondAttribute="trailing" constant="153" id="Ddx-ih-cWV"/>
+                            <constraint firstItem="3UM-r0-tnB" firstAttribute="bottom" secondItem="098-lE-Q41" secondAttribute="bottom" constant="188" id="IgD-uL-Xr6"/>
+                            <constraint firstItem="62Q-5H-ISG" firstAttribute="leading" secondItem="3UM-r0-tnB" secondAttribute="leading" constant="76.5" id="M0B-vh-fWd"/>
+                            <constraint firstItem="62Q-5H-ISG" firstAttribute="top" secondItem="3UM-r0-tnB" secondAttribute="top" constant="116" id="Ns7-Pm-4er"/>
+                            <constraint firstItem="3UM-r0-tnB" firstAttribute="bottom" secondItem="62Q-5H-ISG" secondAttribute="bottom" constant="359" id="PcT-TU-pdR"/>
+                            <constraint firstItem="3UM-r0-tnB" firstAttribute="trailing" secondItem="098-lE-Q41" secondAttribute="trailing" constant="159" id="aIf-Qj-YcK"/>
+                            <constraint firstItem="098-lE-Q41" firstAttribute="leading" secondItem="3UM-r0-tnB" secondAttribute="leading" constant="139" id="tKz-74-Mfq"/>
+                            <constraint firstItem="0fs-0s-UXQ" firstAttribute="leading" secondItem="3UM-r0-tnB" secondAttribute="leading" id="wL9-y6-IMC"/>
+                            <constraint firstItem="3UM-r0-tnB" firstAttribute="trailing" secondItem="62Q-5H-ISG" secondAttribute="trailing" constant="76.5" id="ybE-Q8-zvw"/>
+                            <constraint firstItem="0fs-0s-UXQ" firstAttribute="top" secondItem="3UM-r0-tnB" secondAttribute="top" constant="514" id="zm4-GM-n8S"/>
+                            <constraint firstAttribute="bottom" secondItem="0fs-0s-UXQ" secondAttribute="bottom" constant="-5" id="ztn-CF-qDZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="냥😻" id="BSn-s4-PsO"/>
+                    <connections>
+                        <outlet property="catImageView" destination="0fs-0s-UXQ" id="aJ4-SC-Bhn"/>
+                        <outlet property="randomButton" destination="098-lE-Q41" id="ctU-zD-aBr"/>
+                        <outlet property="randomImageView" destination="62Q-5H-ISG" id="PSX-qq-EyM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0yo-Ci-4MF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3038.9312977099235" y="718.30985915492965"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6UZ-2b-rgE">
@@ -575,12 +680,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svy-GQ-Qds" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3040.4580152671756" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="3039" y="-713"/>
         </scene>
     </scenes>
     <resources>
         <image name="bg" width="580" height="800"/>
+        <image name="cat" width="2787" height="2724"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
+        <image name="slowmo" catalog="system" width="128" height="124"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
