@@ -28,6 +28,7 @@ class TableViewController: UITableViewController {
             if let todoTitle = alert.textFields?[0].text, todoTitle.count != 0 {
                 TodoManager.shared.addTodo(content: todoTitle, isCompleted: true, priority: "없음", category: "일반", progress: 0)
                 self.tableView.reloadData() // Alert에서 메모 추가하게 되면 바로 테이블뷰에 띄워주기
+                print("🚨 추가된 내용: ", todoTitle)
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -39,7 +40,7 @@ class TableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        self.tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
