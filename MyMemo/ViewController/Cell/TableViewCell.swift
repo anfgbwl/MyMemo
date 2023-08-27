@@ -16,7 +16,12 @@ class TableViewCell: UITableViewCell {
     @IBAction func todoSwitch(_ sender: UISwitch) {
         guard let tableView = superview as? UITableView,
               let indexPath = tableView.indexPath(for: self) else { return }
-        var todo = TodoManager.shared.todoList[indexPath.row]
+        print("🚨 indexPath: ", indexPath)
+        print("🚨 indexPath.row: ", indexPath.row)
+        let sectionTodoList = TodoManager.shared.todoList.filter { $0.category == categories[indexPath.section] }
+        let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == sectionTodoList[indexPath.row] }
+        var todo = TodoManager.shared.todoList[originalIndex ?? 0]
+        print("스위치 작동 투두가 뭔가용? :", todo)
         todo.isCompleted = sender.isOn
         updateLabelStrikeThrough()
         TodoManager.shared.updateTodo(inSection: indexPath.section, atRow: indexPath.row, newContent: todo.content, isCompleted: todo.isCompleted, insertDate: todo.insertDate, targetDate: todo.targetDate, priority: todo.priority, category: todo.category, progress: todo.progress)
