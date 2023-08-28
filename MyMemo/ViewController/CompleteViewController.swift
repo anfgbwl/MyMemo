@@ -27,12 +27,12 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var completeTableView: UITableView!
     @IBAction func completeMemoSwitch(_ sender: UISwitch) {
         
-        guard let cell = sender.superview?.superview as? CompleteViewCell, // 스위치 상위 뷰 찾기
-          let indexPath = completeTableView.indexPath(for: cell) else { return }
-    
-        var completedTodo = completedTodos[indexPath.row]
+        guard let cell = sender.superview?.superview as? CompleteViewCell,
+              let indexPath = completeTableView.indexPath(for: cell) else { return }
+        let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == completedTodos[indexPath.row] } ?? 0
+        var completedTodo = TodoManager.shared.todoList[originalIndex]
         completedTodo.isCompleted = sender.isOn
-        TodoManager.shared.updateTodo(inSection: indexPath.section, atRow: indexPath.row, newContent: completedTodo.content, isCompleted: completedTodo.isCompleted, insertDate: completedTodo.insertDate, targetDate: completedTodo.targetDate, priority: completedTodo.priority, category: completedTodo.category, progress: completedTodo.progress)
+        TodoManager.shared.updateTodo(at: originalIndex, newContent: completedTodo.content, isCompleted: completedTodo.isCompleted, insertDate: completedTodo.insertDate, targetDate: completedTodo.targetDate, priority: completedTodo.priority, category: completedTodo.category, progress: completedTodo.progress)
         
         if completedTodo.isCompleted {
             // completedMemos 배열에서 제거하고 셀을 삭제
@@ -72,9 +72,10 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let indexToDelete = indexPath.row
-            let section = indexPath.section
-            TodoManager.shared.deleteTodo(inSection: section, atRow: indexToDelete)
+            let todoListInSection = TodoManager.shared.todoList.filter { $0.category == categories[indexPath.section] }
+            let todo = todoListInSection[indexPath.row]
+            let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == todo } ?? 0
+            TodoManager.shared.deleteTodo(at: originalIndex)
             
             // 데이터 소스와 일치하도록 completedMemos 업데이트
             completedTodos = TodoManager.shared.todoList.filter { $0.isCompleted == false }
@@ -90,6 +91,5 @@ class CompleteViewCell : UITableViewCell {
     
     @IBOutlet weak var completeMemoLabel: UILabel!
     @IBOutlet weak var completeMemoSwitch: UISwitch!
-    
     
 }

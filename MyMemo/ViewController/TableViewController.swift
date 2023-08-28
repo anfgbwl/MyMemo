@@ -25,10 +25,9 @@ class TableViewController: UITableViewController {
         }
         
         let ok = UIAlertAction(title: "확인", style: .default) { (_) in
-            if let todoTitle = alert.textFields?[0].text, todoTitle.count != 0 {
+            if let todoTitle = alert.textFields?[0].text, todoTitle != "" {
                 TodoManager.shared.addTodo(content: todoTitle, isCompleted: true, priority: "없음", category: "일반", progress: 0)
                 self.tableView.reloadData() // Alert에서 메모 추가하게 되면 바로 테이블뷰에 띄워주기
-                print("🚨 추가된 내용: ", todoTitle)
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -64,7 +63,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
         header?.textLabel?.textColor = .white
-        header?.contentView.backgroundColor = UIColor.tintColor
+        header?.contentView.backgroundColor = .systemGray
         return header
     }
     
@@ -76,7 +75,10 @@ class TableViewController: UITableViewController {
     // 섹션 푸터 라벨
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
-        footer?.textLabel?.text = "완료 n 건 / 미완료 n 건"
+        let todoListInSection = TodoManager.shared.todoList.filter { $0.category == categories[section] }
+        let completedCount = todoListInSection.filter { $0.isCompleted == false }.count
+        let incompletedCount = todoListInSection.count - completedCount
+        footer?.textLabel?.text = "완료 \(completedCount) 건 / 미완료 \(incompletedCount) 건"
         footer?.contentView.backgroundColor = UIColor.systemGray6
         return footer
     }
@@ -88,7 +90,6 @@ class TableViewController: UITableViewController {
     
     // 섹션 내 셀의 갯수
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 카테고리 배열의 값과 memoList의 카테고리 값이 매칭되면 해당 memoList의 카운트를 반환
         let category = categories[section]
         return TodoManager.shared.todoList.filter { $0.category == category }.count
     }
@@ -109,9 +110,10 @@ class TableViewController: UITableViewController {
         
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let indexToDelete = indexPath.row
-            let section = indexPath.section
-            TodoManager.shared.deleteTodo(inSection: section, atRow: indexToDelete)
+            let todoListInSection = TodoManager.shared.todoList.filter { $0.category == categories[indexPath.section] }
+            let todo = todoListInSection[indexPath.row]
+            let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == todo } ?? 0
+            TodoManager.shared.deleteTodo(at: originalIndex)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -124,7 +126,6 @@ class TableViewController: UITableViewController {
                     let selectedTodoIndex = selectedIndexPath.row // 카테고리 내 todo
                     let category = categories[section]
                     let prepareTodo = TodoManager.shared.todoList.filter { $0.category == category }[selectedTodoIndex]
-                    destination.prepareTodoIndex = selectedIndexPath
                     destination.prepareTodo = prepareTodo
                 }
             }
@@ -156,11 +157,15 @@ extension TableViewController {
         footer.backgroundColor = .black
         
         let headerTitle = UILabel(frame: header.bounds)
-        headerTitle.text = "⁉️ 뭘하면 될까용 ⁉️"
-        headerTitle.textAlignment = .center
+        headerTitle.text = "   Todo"
+        headerTitle.font = .systemFont(ofSize: 25.0, weight: .black)
+        headerTitle.textAlignment = .left
         
         let footerTitle = UILabel(frame: header.bounds)
-        footerTitle.text = "☠️ 완료 n 건 / 미완료 n 건 ☠️"
+        let completedCount = TodoManager.shared.todoList.filter { $0.isCompleted == false }.count
+        let incompletedCount = TodoManager.shared.todoList.count - completedCount
+        footerTitle.text = "☠️ 완료 \(completedCount) 건 / 미완료 \(incompletedCount) 건 ☠️"
+        footerTitle.font = .systemFont(ofSize: 18.0, weight: .bold)
         footerTitle.textColor = .white
         footerTitle.textAlignment = .center
         
