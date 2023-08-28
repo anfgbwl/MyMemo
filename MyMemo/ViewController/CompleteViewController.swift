@@ -72,9 +72,10 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let indexToDelete = indexPath.row
-            let section = indexPath.section
-            TodoManager.shared.deleteTodo(inSection: section, atRow: indexToDelete)
+            let todoListInSection = TodoManager.shared.todoList.filter { $0.category == categories[indexPath.section] }
+            let todo = todoListInSection[indexPath.row]
+            let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == todo } ?? 0
+            TodoManager.shared.deleteTodo(at: originalIndex)
             
             // 데이터 소스와 일치하도록 completedMemos 업데이트
             completedTodos = TodoManager.shared.todoList.filter { $0.isCompleted == false }

@@ -44,22 +44,11 @@ class TodoManager {
     }
 
     // todo 삭제
-    func deleteTodo(inSection section: Int, atRow row: Int) {
-        // 나중에 카테고리에 해당하는 todo가 없으면 화면에서 숨기는 형태로 해야겠음(삭제한 코드: section < todoList.count)
-        guard section >= 0 else {
+    func deleteTodo(at index: Int) {
+        guard index >= 0 && index < todoList.count  else {
             return
         }
-        let category = categories[section]
-        var todoListInSection = todoList.filter { $0.category == category }
-        guard row >= 0 && row < todoListInSection.count else {
-            return
-        }
-        let todo = todoListInSection.remove(at: row)
-        
-        // todoList에서 해당 todo를 찾아서 삭제
-        if let index = todoList.firstIndex(where: { $0 == todo }) {
-            todoList.remove(at: index)
-        }
+        todoList.remove(at: index)
         saveTodoListToUserDefaults()
     }
     

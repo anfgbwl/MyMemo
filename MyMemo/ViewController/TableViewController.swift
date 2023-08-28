@@ -108,9 +108,11 @@ class TableViewController: UITableViewController {
         
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let indexToDelete = indexPath.row
-            let section = indexPath.section
-            TodoManager.shared.deleteTodo(inSection: section, atRow: indexToDelete)
+            var todoListInSection = TodoManager.shared.todoList.filter { $0.category == categories[indexPath.section] }
+            var todo = todoListInSection[indexPath.row]
+            let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == todo } ?? 0
+            
+            TodoManager.shared.deleteTodo(at: originalIndex)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -123,7 +125,6 @@ class TableViewController: UITableViewController {
                     let selectedTodoIndex = selectedIndexPath.row // 카테고리 내 todo
                     let category = categories[section]
                     let prepareTodo = TodoManager.shared.todoList.filter { $0.category == category }[selectedTodoIndex]
-                    destination.prepareTodoIndex = selectedIndexPath
                     destination.prepareTodo = prepareTodo
                 }
             }

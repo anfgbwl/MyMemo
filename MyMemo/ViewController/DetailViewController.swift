@@ -9,7 +9,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
     // prepare로 받아올 todo
-    var prepareTodoIndex: IndexPath?
     var prepareTodo: Todo?
     
     @IBOutlet weak var todoTextView: UITextView!
@@ -50,12 +49,8 @@ class DetailViewController: UIViewController {
         let todoManagementAlert = UIAlertController(title: "", message: "해당 항목을 삭제합니다.", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         let delete = UIAlertAction(title: "삭제", style: .default) { [self] (_) in
-            guard let prepareTodoIndex = self.prepareTodoIndex else {
-                return
-            }
-            let section = prepareTodoIndex.section
-            let row = prepareTodoIndex.row
-            TodoManager.shared.deleteTodo(inSection: section, atRow: row)
+            let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == prepareTodo } ?? 0
+            TodoManager.shared.deleteTodo(at: originalIndex)
             self.navigationController?.popViewController(animated: true)
         }
         delete.setValue(UIColor.red, forKey: "titleTextColor")
