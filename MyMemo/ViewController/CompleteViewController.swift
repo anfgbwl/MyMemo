@@ -92,5 +92,4 @@ class CompleteViewCell : UITableViewCell {
     @IBOutlet weak var completeMemoLabel: UILabel!
     @IBOutlet weak var completeMemoSwitch: UISwitch!
     
-    
 }
