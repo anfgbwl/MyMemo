@@ -27,12 +27,12 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var completeTableView: UITableView!
     @IBAction func completeMemoSwitch(_ sender: UISwitch) {
         
-        guard let cell = sender.superview?.superview as? CompleteViewCell, // 스위치 상위 뷰 찾기
-          let indexPath = completeTableView.indexPath(for: cell) else { return }
-    
-        var completedTodo = completedTodos[indexPath.row]
+        guard let cell = sender.superview?.superview as? CompleteViewCell,
+              let indexPath = completeTableView.indexPath(for: cell) else { return }
+        let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == completedTodos[indexPath.row] } ?? 0
+        var completedTodo = TodoManager.shared.todoList[originalIndex]
         completedTodo.isCompleted = sender.isOn
-        TodoManager.shared.updateTodo(inSection: indexPath.section, atRow: indexPath.row, newContent: completedTodo.content, isCompleted: completedTodo.isCompleted, insertDate: completedTodo.insertDate, targetDate: completedTodo.targetDate, priority: completedTodo.priority, category: completedTodo.category, progress: completedTodo.progress)
+        TodoManager.shared.updateTodo(at: originalIndex, newContent: completedTodo.content, isCompleted: completedTodo.isCompleted, insertDate: completedTodo.insertDate, targetDate: completedTodo.targetDate, priority: completedTodo.priority, category: completedTodo.category, progress: completedTodo.progress)
         
         if completedTodo.isCompleted {
             // completedMemos 배열에서 제거하고 셀을 삭제

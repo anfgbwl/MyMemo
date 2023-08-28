@@ -25,10 +25,9 @@ class TableViewController: UITableViewController {
         }
         
         let ok = UIAlertAction(title: "확인", style: .default) { (_) in
-            if let todoTitle = alert.textFields?[0].text, todoTitle.count != 0 {
+            if let todoTitle = alert.textFields?[0].text, todoTitle != "" {
                 TodoManager.shared.addTodo(content: todoTitle, isCompleted: true, priority: "없음", category: "일반", progress: 0)
                 self.tableView.reloadData() // Alert에서 메모 추가하게 되면 바로 테이블뷰에 띄워주기
-                print("🚨 추가된 내용: ", todoTitle)
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)

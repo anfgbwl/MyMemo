@@ -34,11 +34,8 @@ class DetailViewController: UIViewController {
         let priority = priorityButton.titleLabel?.text ?? "없음"
         let category = categoryButton.titleLabel?.text ?? "일반"
         let progress = Int(progressSlider.value)
-        if let prepareTodoIndex = prepareTodoIndex {
-            let section = prepareTodoIndex.section
-            let row = prepareTodoIndex.row
-            TodoManager.shared.updateTodo(inSection: section, atRow: row, newContent: content, isCompleted: isCompleted, insertDate: Date(), targetDate: targetDate, priority: priority, category: category, progress: progress)
-        }
+        let originalIndex = TodoManager.shared.todoList.firstIndex { $0 == prepareTodo } ?? 0
+        TodoManager.shared.updateTodo(at: originalIndex, newContent: content, isCompleted: isCompleted, insertDate: Date(), targetDate: targetDate, priority: priority, category: category, progress: progress)
         
         // 수정 완료 알람
         let checkAlert = UIAlertController(title: "수정되었습니다.", message: "", preferredStyle: .alert)

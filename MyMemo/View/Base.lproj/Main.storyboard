@@ -438,7 +438,7 @@
                                                     <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
                                                     <color key="onTintColor" systemColor="linkColor"/>
                                                     <connections>
-                                                        <action selector="completeMemoSwitch:" destination="cnT-y3-aQq" eventType="valueChanged" id="z3l-Xl-iNI"/>
+                                                        <action selector="completeMemoSwitch:" destination="cnT-y3-aQq" eventType="valueChanged" id="GTJ-LF-Nhm"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -453,7 +453,7 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="completeMemoLabel" destination="PoR-7d-1ix" id="N7Y-Ej-ziC"/>
-                                            <outlet property="completeMemoSwitch" destination="F8l-Bj-TDB" id="AGt-hc-rWK"/>
+                                            <outlet property="completeMemoSwitch" destination="F8l-Bj-TDB" id="WCT-5u-sA7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
