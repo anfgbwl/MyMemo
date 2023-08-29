@@ -11,8 +11,29 @@
 
 <br><br>
 
+## 🧠 MVC 구조
+![‎MVC](https://github.com/anfgbwl/MyMemo/assets/53863005/fb03e31c-705d-4f44-bff3-c6a86677d825)
+#### 1. View
+- Main 스토리보드: 앱의 화면 구조와 각각의 뷰 컨트롤러들이 어떻게 연결되어 있는지 정의하는 역할을 합니다.
+- Launch Screen: 앱을 실행할 때 보이는 초기 화면으로, 앱을 빠르게 로딩하기 위해 사용되는 이미지 또는 인터페이스를 포함합니다.
+#### 2. View Controllers
+- ViewController: 주로 앱의 초기 화면이나 기본적인 UI 구성을 다루는 뷰 컨트롤러입니다.
+- TableViewController: 테이블 뷰를 사용하는 화면을 다루는 뷰 컨트롤러로, 테이블 뷰의 데이터 소스 및 델리게이트 역할을 수행할 수 있습니다.
+- DetailViewController: 특정 항목의 상세 정보를 보여주는 화면을 다루는 뷰 컨트롤러입니다.
+- CompleteViewController: 완료된 작업 목록 등을 보여주는 화면을 다루는 뷰 컨트롤러입니다.
+- PetViewController: 애완동물 정보 등을 보여주는 화면을 다루는 뷰 컨트롤러입니다.
+- TableViewCell: 테이블 뷰에서 각 셀의 디자인과 내용을 정의하는 역할을 하는 커스텀 테이블 뷰 셀입니다.
+#### 3. Model
+- Todo: 할 일 정보를 담고 있는 데이터 모델 클래스로, 제목이나 내용과 같은 필요한 정보를 저장하고 관리합니다.
+- TodoManager: 할 일 목록을 관리하고 조작하는 로직을 담당하는 클래스입니다. 할 일의 추가, 수정, 삭제 등을 다룹니다.
+- RandomImage: 랜덤 이미지를 가져오는데 관련된 로직을 다루는 클래스로, 이미지 URL을 생성하거나 이미지를 가져오는 작업을 처리합니다.
+
+
+<br><br>
+
 ## 🛠️ 사용한 기술 스택 (Tech Stack)
-<img src="https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=Swift&logoColor=white"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
+<img src="https://img.shields.io/badge/Swift-F05138?style=for-the-badge&logo=Swift&logoColor=white"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+
 
 <br><br>
 
@@ -47,7 +68,9 @@
 <br><br>
 
 ## 🧐 앱 실행 및 사용 방법
+#### Version 1
 ![앱실행화면](https://github.com/anfgbwl/MyMemo/assets/53863005/9cce8f32-20f9-43b6-a950-14b8d9010260)
+#### Version 2
 
 
 
