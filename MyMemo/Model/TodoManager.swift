@@ -79,7 +79,5 @@ class TodoManager {
             print("Error encoding data:", encodingError.localizedDescription)
         }
     }
-
-
+    
 }
-

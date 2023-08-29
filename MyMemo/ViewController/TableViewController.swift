@@ -152,28 +152,16 @@ extension String {
 extension TableViewController {
     func setUpTableViewHeaderFooter() {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
-        let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
         header.backgroundColor = .systemGray6
-        footer.backgroundColor = .black
-        
+    
         let headerTitle = UILabel(frame: header.bounds)
         headerTitle.text = "   Todo"
         headerTitle.font = .systemFont(ofSize: 25.0, weight: .black)
         headerTitle.textAlignment = .left
         
-        let footerTitle = UILabel(frame: header.bounds)
-        let completedCount = TodoManager.shared.todoList.filter { $0.isCompleted == false }.count
-        let incompletedCount = TodoManager.shared.todoList.count - completedCount
-        footerTitle.text = "☠️ 완료 \(completedCount) 건 / 미완료 \(incompletedCount) 건 ☠️"
-        footerTitle.font = .systemFont(ofSize: 18.0, weight: .bold)
-        footerTitle.textColor = .white
-        footerTitle.textAlignment = .center
-        
         header.addSubview(headerTitle)
-        footer.addSubview(footerTitle)
         
         tableView.tableHeaderView = header
-        tableView.tableFooterView = footer
         
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "customHeader")
     }
