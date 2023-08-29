@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         URLManager.shared.getJsonData(completion: { result in
             switch result {
             case .success(let data):

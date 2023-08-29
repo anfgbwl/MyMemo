@@ -120,7 +120,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Utf-fQ-6zj" secondAttribute="trailing" constant="135.66666666666669" id="yBm-NB-xSB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qXp-Mx-FTP"/>
+                    <navigationItem key="navigationItem" title=" " id="qXp-Mx-FTP"/>
                     <connections>
                         <outlet property="firstButton" destination="YWX-rL-Ers" id="JCD-AM-kmh"/>
                         <outlet property="imgView" destination="mv5-ba-LVg" id="74g-wi-Vuo"/>
@@ -476,6 +476,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="gAa-cf-EqH"/>
                     <navigationItem key="navigationItem" title="완료한 일 보기" id="YhA-Ki-IUG">
                         <barButtonItem key="rightBarButtonItem" title="전체삭제" style="plain" id="C6x-c8-GxW">
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="editButton:" destination="cnT-y3-aQq" id="HIq-E9-w09"/>
                             </connections>
@@ -578,6 +579,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y6S-TV-b6y">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="labelColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

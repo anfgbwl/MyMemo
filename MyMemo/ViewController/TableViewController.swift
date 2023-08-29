@@ -62,8 +62,8 @@ class TableViewController: UITableViewController {
     // 섹션 헤더 배경색
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "customHeader")
-        header?.textLabel?.textColor = .white
-        header?.contentView.backgroundColor = .systemGray
+        header?.textLabel?.textColor = .systemGray
+        header?.contentView.backgroundColor = .systemBackground
         return header
     }
     
@@ -152,7 +152,7 @@ extension String {
 extension TableViewController {
     func setUpTableViewHeaderFooter() {
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 60))
-        header.backgroundColor = .systemGray6
+        header.backgroundColor = .systemBackground
     
         let headerTitle = UILabel(frame: header.bounds)
         headerTitle.text = "   Todo"
