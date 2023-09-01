@@ -53,11 +53,6 @@ class CompleteViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
     }
     
-    @objc func updateMemoStatus(_ notification: Notification) {
-            // 메모 상태가 업데이트되었을 때 테이블 뷰 업데이트
-            completeTableView.reloadData()
-        }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return completedTodos.count
     }
