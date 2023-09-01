@@ -46,7 +46,6 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         setUpTableViewHeaderFooter()
-        self.tableView.reloadData()
     }
 
     // 섹션 헤더 높이
