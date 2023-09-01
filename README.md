@@ -29,7 +29,14 @@
 - Todo: 할 일 정보를 담고 있는 데이터 모델 클래스로, 제목이나 내용과 같은 필요한 정보를 저장하고 관리합니다.
 - TodoManager: 할 일 목록을 관리하고 조작하는 로직을 담당하는 클래스입니다. 할 일의 추가, 수정, 삭제 등을 다룹니다.
 - RandomImage: 랜덤 이미지를 가져오는데 관련된 로직을 다루는 클래스로, 이미지 URL을 생성하거나 이미지를 가져오는 작업을 처리합니다.
-
+<br>
+  
+> **View Controller Lifecycle**
+> <br>
+>- ViewController: 메인 이미지 호출 _(viewDidLoad)_
+>- TableViewController: Todo data 호출 _(viewWillAppear)_, Todo 추가 시 Alert 내에서 호출
+>- DetailViewController: Todo data 내 filter를 통해 isCompleted가 false인 Todo를 화면에 노출 _(viewWillAppear)_
+>- PetViewController: 스켈레톤뷰 호출 _(viewWillAppear)_, 랜덤 이미지뷰 호출 _(viewDidLoad)_
 
 <br><br>
 
